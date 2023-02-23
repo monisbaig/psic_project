@@ -327,27 +327,59 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                             indicatorSize: TabBarIndicatorSize.label,
                             tabs: [
                               Column(
-                                children: const [
-                                  Tab(text: 'Thur'),
-                                  Tab(text: '11'),
+                                children: [
+                                  const Tab(text: 'Thur'),
+                                  Tab(
+                                    text: snapshot.data?.day_1.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Fri'),
-                                  Tab(text: '12'),
+                                children: [
+                                  const Tab(text: 'Fri'),
+                                  Tab(
+                                    text: snapshot.data?.day_2.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Sat'),
-                                  Tab(text: '13'),
+                                children: [
+                                  const Tab(text: 'Sat'),
+                                  Tab(
+                                    text: snapshot.data?.day_3.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Sun'),
-                                  Tab(text: '14'),
+                                children: [
+                                  const Tab(text: 'Sun'),
+                                  Tab(
+                                    text: snapshot.data?.day_4.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                             ],
@@ -362,12 +394,12 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                             children: [
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_1!.dayHalls!.length,
+                                    snapshot.data!.day_1.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // const SizedBox(height: 10),
                                     Visibility(
-                                      visible: snapshot.data!.day_1!.dayHalls!
+                                      visible: snapshot.data!.day_1.dayHalls
                                           .elementAt(index)
                                           .hallDetail
                                           .toString()
@@ -401,7 +433,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      '${snapshot.data?.day_1!.dayHalls!.elementAt(index).hallDetail}',
+                                                      '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail}',
                                                       style: const TextStyle(
                                                         color: Colors.grey,
                                                         fontSize: 12,
@@ -423,9 +455,9 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                         builder: (context, mysavedData) {
                                           List<String> sessions = [];
                                           for (var element in snapshot
-                                              .data!.day_1!.dayHalls!
+                                              .data!.day_1.dayHalls
                                               .elementAt(index)
-                                              .hallSessions!) {
+                                              .hallSessions) {
                                             sessions.add(element.sessionDetail
                                                 .toString()
                                                 .toLowerCase()
@@ -529,7 +561,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                                                 MediaQuery.of(context).size.width * 0.5.w,
                                                                             child:
                                                                                 Text(
-                                                                              '${snapshot.data?.day_1!.dayHalls!.elementAt(index).hallName}',
+                                                                              '${snapshot.data?.day_1.dayHalls.elementAt(index).hallName}',
                                                                               // '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTimeSlots.elementAt(index).title.toString().toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
                                                                               style: const TextStyle(
                                                                                 color: Colors.black,
@@ -634,12 +666,12 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                               ),
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_2!.dayHalls!.length,
+                                    snapshot.data!.day_2.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // const SizedBox(height: 10),
                                     Visibility(
-                                      visible: snapshot.data!.day_2!.dayHalls!
+                                      visible: snapshot.data!.day_2.dayHalls
                                           .elementAt(index)
                                           .hallDetail
                                           .toString()
@@ -673,7 +705,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      '${snapshot.data?.day_2!.dayHalls!.elementAt(index).hallDetail}',
+                                                      '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail}',
                                                       style: const TextStyle(
                                                         color: Colors.grey,
                                                         fontSize: 12,
@@ -695,9 +727,9 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                         builder: (context, mysavedData) {
                                           List<String> sessions = [];
                                           for (var element in snapshot
-                                              .data!.day_2!.dayHalls!
+                                              .data!.day_2.dayHalls
                                               .elementAt(index)
-                                              .hallSessions!) {
+                                              .hallSessions) {
                                             sessions.add(element.sessionDetail
                                                 .toString()
                                                 .toLowerCase()
@@ -801,7 +833,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                                                 MediaQuery.of(context).size.width * 0.5.w,
                                                                             child:
                                                                                 Text(
-                                                                              '${snapshot.data?.day_2!.dayHalls!.elementAt(index).hallName}',
+                                                                              '${snapshot.data?.day_2.dayHalls.elementAt(index).hallName}',
                                                                               style: const TextStyle(
                                                                                 color: Colors.black,
                                                                                 fontWeight: FontWeight.w700,
@@ -905,12 +937,12 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                               ),
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_3!.dayHalls!.length,
+                                    snapshot.data!.day_3.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // const SizedBox(height: 10),
                                     Visibility(
-                                      visible: snapshot.data!.day_3!.dayHalls!
+                                      visible: snapshot.data!.day_3.dayHalls
                                           .elementAt(index)
                                           .hallDetail
                                           .toString()
@@ -944,7 +976,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      '${snapshot.data?.day_3!.dayHalls!.elementAt(index).hallDetail}',
+                                                      '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail}',
                                                       style: const TextStyle(
                                                         color: Colors.grey,
                                                         fontSize: 12,
@@ -966,9 +998,9 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                         builder: (context, mysavedData) {
                                           List<String> sessions = [];
                                           for (var element in snapshot
-                                              .data!.day_3!.dayHalls!
+                                              .data!.day_3.dayHalls
                                               .elementAt(index)
-                                              .hallSessions!) {
+                                              .hallSessions) {
                                             sessions.add(element.sessionDetail
                                                 .toString()
                                                 .toLowerCase()
@@ -1072,7 +1104,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                                                 MediaQuery.of(context).size.width * 0.5.w,
                                                                             child:
                                                                                 Text(
-                                                                              '${snapshot.data?.day_3!.dayHalls!.elementAt(index).hallName}',
+                                                                              '${snapshot.data?.day_3.dayHalls.elementAt(index).hallName}',
                                                                               style: const TextStyle(
                                                                                 color: Colors.black,
                                                                                 fontWeight: FontWeight.w700,
@@ -1176,12 +1208,12 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                               ),
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_4!.dayHalls!.length,
+                                    snapshot.data!.day_4.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // const SizedBox(height: 10),
                                     Visibility(
-                                      visible: snapshot.data!.day_4!.dayHalls!
+                                      visible: snapshot.data!.day_4.dayHalls
                                           .elementAt(index)
                                           .hallDetail
                                           .toString()
@@ -1215,7 +1247,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      '${snapshot.data?.day_4!.dayHalls!.elementAt(index).hallDetail}',
+                                                      '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail}',
                                                       style: const TextStyle(
                                                         color: Colors.grey,
                                                         fontSize: 12,
@@ -1237,9 +1269,9 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                         builder: (context, mysavedData) {
                                           List<String> sessions = [];
                                           for (var element in snapshot
-                                              .data!.day_4!.dayHalls!
+                                              .data!.day_4.dayHalls
                                               .elementAt(index)
-                                              .hallSessions!) {
+                                              .hallSessions) {
                                             sessions.add(element.sessionDetail
                                                 .toString()
                                                 .toLowerCase()
@@ -1343,7 +1375,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage>
                                                                                 MediaQuery.of(context).size.width * 0.5.w,
                                                                             child:
                                                                                 Text(
-                                                                              '${snapshot.data?.day_4!.dayHalls!.elementAt(index).hallName}',
+                                                                              '${snapshot.data?.day_4.dayHalls.elementAt(index).hallName}',
                                                                               style: const TextStyle(
                                                                                 color: Colors.black,
                                                                                 fontWeight: FontWeight.w700,

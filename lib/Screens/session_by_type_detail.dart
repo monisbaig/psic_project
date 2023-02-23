@@ -88,7 +88,7 @@ class SessionByTypeDetailState extends State<SessionByTypeDetail> {
                         ),
                         Visibility(
                           visible:
-                              index <= snapshot.data!.day_1!.dayHalls!.length,
+                              index <= snapshot.data!.day_1.dayHalls.length,
                           child: Column(
                             children: [
                               // Text(
@@ -110,7 +110,7 @@ class SessionByTypeDetailState extends State<SessionByTypeDetail> {
                                   ),
                                   builder: (context, snap) {
                                     if (snap.hasData) {
-                                      print(snap.data?.length);
+                                      // print(snap.data?.length);
                                       return SizedBox(
                                         height:
                                             MediaQuery.of(context).size.height *

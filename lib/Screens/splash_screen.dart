@@ -19,10 +19,10 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
-  String _debugLabelString = "";
+  String debugLabelString = "";
 
   // CHANGE THIS parameter to true if you want to test GDPR privacy consent
-  final bool _requireConsent = false;
+  // final bool _requireConsent = false;
   ProgramController controller = ProgramController();
   SessionByDayController sessionByDayController = SessionByDayController();
 
@@ -74,7 +74,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       );
       print('NOTIFICATION OPENED HANDLER CALLED WITH: $result');
       setState(() {
-        _debugLabelString =
+        debugLabelString =
             "Opened notification: \n${result.notification.jsonRepresentation().replaceAll("\\n", "\n")}";
       });
     });
@@ -86,13 +86,13 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       /// Display Notification, send null to not display
       event.complete(event.notification);
       Random random = Random();
-      controller.createNotif(Notif(
+      controller.createNotif(CustomNotifications(
           title: event.notification.title,
           description: event.notification.body,
           id: random.nextInt(1000),
           time: '${DateTime.now().hour}:${DateTime.now().minute}'));
       setState(() {
-        _debugLabelString =
+        debugLabelString =
             "Notification received in foreground notification: \n${event.notification.jsonRepresentation().replaceAll("\\n", "\n")}";
       });
     });

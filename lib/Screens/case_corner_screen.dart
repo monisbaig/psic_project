@@ -204,7 +204,7 @@ class _CaseCornerScreenPageState extends State<CaseCornerScreenPage> {
                                                                           )));
                                                         },
                                                         child: Text(
-                                                          '${snapshot.data?.elementAt(indexList2).sessionDetail}',
+                                                          '${snapshot.data?.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />', '').replaceAll('\n', '')}',
                                                           maxLines: 100,
                                                           style:
                                                               const TextStyle(

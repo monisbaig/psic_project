@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:psic_project/Model/data_model.dart';
-import 'package:psic_project/Screens/home_sceen.dart';
 import 'package:psic_project/Screens/session_detail.dart';
 import 'package:psic_project/controller/session_by_day_controller.dart';
 
@@ -50,10 +48,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                   // print(snapshot.data!.eventDates
                   //     .toString()
                   //     .replaceRange(0, 12, ''));
-                  print(DateTime.now());
-                  print('hello${snapshot.data!.day_1.dayDate}');
-                  DateTime firstdate = DateFormat.yMMMMd('en_US')
-                      .parse(snapshot.data!.day_1.dayDate.toString());
+                  // print(DateTime.now());
+                  // print('hello${snapshot.data!.day_1.dayDate}');
+                  // DateTime firstdate = DateFormat.yMMMMd('en_US')
+                  //     .parse(snapshot.data!.day_1.dayDate.toString());
                   // var year=snapshot.data!.eventDates.toString().replaceRange(0,12,'');
                   // var  start=snapshot.data!.eventDates.toString().replaceRange(2,16,'');
                   // var  end=snapshot.data!.eventDates.toString().replaceRange(0,5,'').replaceRange(3,11,'');
@@ -313,27 +311,59 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                             indicatorSize: TabBarIndicatorSize.label,
                             tabs: [
                               Column(
-                                children: const [
-                                  Tab(text: 'Thur'),
-                                  Tab(text: '11'),
+                                children: [
+                                  const Tab(text: 'Thur'),
+                                  Tab(
+                                    text: snapshot.data?.day_1.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Fri'),
-                                  Tab(text: '12'),
+                                children: [
+                                  const Tab(text: 'Fri'),
+                                  Tab(
+                                    text: snapshot.data?.day_2.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Sat'),
-                                  Tab(text: '13'),
+                                children: [
+                                  const Tab(text: 'Sat'),
+                                  Tab(
+                                    text: snapshot.data?.day_3.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                               Column(
-                                children: const [
-                                  Tab(text: 'Sun'),
-                                  Tab(text: '14'),
+                                children: [
+                                  const Tab(text: 'Sun'),
+                                  Tab(
+                                    text: snapshot.data?.day_4.dayHalls
+                                        .elementAt(index)
+                                        .hallSessions
+                                        .elementAt(index)
+                                        .sessionDate
+                                        .toString()
+                                        .substring(0, 2),
+                                  ),
                                 ],
                               ),
                             ],
@@ -353,7 +383,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                   children: [
                                     SizedBox(height: 5.h),
                                     Visibility(
-                                      visible: snapshot.data!.day_1.dayHalls.elementAt(index)
+                                      visible: snapshot.data!.day_1.dayHalls
+                                          .elementAt(index)
                                           .hallDetail
                                           .toString()
                                           .isNotEmpty,
@@ -414,49 +445,58 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                             // padding:
                                             //     const EdgeInsets.only(bottom: 20),
                                             itemCount: snapshot
-                                                .data?.day_1.dayHalls.elementAt(index)
-                                                .hallSessions.length,
+                                                .data?.day_1.dayHalls
+                                                .elementAt(index)
+                                                .hallSessions
+                                                .length,
                                             itemBuilder: (context, indexList2) {
                                               return Column(
                                                 children: [
                                                   InkWell(
                                                     onTap: () {
-                                                      try{
-                                                          Navigator.of(context)
-                                                              .push(
-                                                            MaterialPageRoute(
-                                                              builder: (context) {
-                                                                return SessionDetail(
-                                                                  sessions: snapshot
-                                                                      .data!
-                                                                      .day_1.dayHalls.elementAt(
-                                                                      index)
-                                                                      .hallSessions.elementAt(
-                                                                      indexList2),
-                                                                  hallIndex: index,
-                                                                  sessionIndex:
-                                                                  indexList2,
-                                                                  allSessionsList:
-                                                                  snapshot
-                                                                      .data!
-                                                                      .day_1.dayHalls.elementAt(
-                                                                      index)
-                                                                      .hallSessions,
-                                                                  comingFrom: snapshot
-                                                                      .data!
-                                                                      .day_1.dayHalls.elementAt(
-                                                                      index)
-                                                                      .hallSessions.elementAt(
-                                                                      indexList2)
-                                                                      .sessionName
-                                                                      .toString()
-                                                                      .toLowerCase(),
-                                                                );
-                                                              },
-                                                            ),
-                                                          );
-                                                      }
-                                                      catch(e) {
+                                                      try {
+                                                        Navigator.of(context)
+                                                            .push(
+                                                          MaterialPageRoute(
+                                                            builder: (context) {
+                                                              return SessionDetail(
+                                                                sessions: snapshot
+                                                                    .data!
+                                                                    .day_1
+                                                                    .dayHalls
+                                                                    .elementAt(
+                                                                        index)
+                                                                    .hallSessions
+                                                                    .elementAt(
+                                                                        indexList2),
+                                                                hallIndex:
+                                                                    index,
+                                                                sessionIndex:
+                                                                    indexList2,
+                                                                allSessionsList: snapshot
+                                                                    .data!
+                                                                    .day_1
+                                                                    .dayHalls
+                                                                    .elementAt(
+                                                                        index)
+                                                                    .hallSessions,
+                                                                comingFrom: snapshot
+                                                                    .data!
+                                                                    .day_1
+                                                                    .dayHalls
+                                                                    .elementAt(
+                                                                        index)
+                                                                    .hallSessions
+                                                                    .elementAt(
+                                                                        indexList2)
+                                                                    .sessionName
+                                                                    .toString()
+                                                                    .toLowerCase(),
+                                                              );
+                                                            },
+                                                          ),
+                                                        );
+                                                      } catch (e) {
                                                         print(e);
                                                       }
                                                     },
@@ -645,7 +685,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                   children: [
                                     SizedBox(height: 5.h),
                                     Visibility(
-                                      visible: snapshot.data!.day_2.dayHalls.elementAt(index)
+                                      visible: snapshot.data!.day_2.dayHalls
+                                          .elementAt(index)
                                           .hallDetail
                                           .toString()
                                           .isNotEmpty,
@@ -706,48 +747,52 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                             // padding:
                                             //     const EdgeInsets.only(bottom: 20),
                                             itemCount: snapshot
-                                                .data?.day_2.dayHalls.elementAt(index)
-                                                .hallSessions.length,
+                                                .data?.day_2.dayHalls
+                                                .elementAt(index)
+                                                .hallSessions
+                                                .length,
                                             itemBuilder: (context, indexList2) {
                                               return Column(
                                                 children: [
                                                   InkWell(
                                                     onTap: () {
-                                                      try{
-                                                          Navigator.of(context).push(
-                                                              MaterialPageRoute(
-                                                                  builder: (context) =>
-                                                                      SessionDetail(
-                                                                        sessions: snapshot
-                                                                            .data!
-                                                                            .day_2.dayHalls.elementAt(
-                                                                            index)
-                                                                            .hallSessions.elementAt(
-                                                                            indexList2),
-                                                                        hallIndex:
-                                                                        index,
-                                                                        sessionIndex:
-                                                                        indexList2,
-                                                                        allSessionsList: snapshot
-                                                                            .data!
-                                                                            .day_2.dayHalls.elementAt(
-                                                                            index)
-                                                                            .hallSessions,
-                                                                        comingFrom: snapshot
-                                                                            .data!
-                                                                            .day_2.dayHalls.elementAt(
-                                                                            index)
-                                                                            .hallSessions.elementAt(
-                                                                            indexList2)
-                                                                            .sessionName
-                                                                            .toString()
-                                                                            .toLowerCase(),
-                                                                      )));
-                                                      }
-                                                      catch(e) {
+                                                      try {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        SessionDetail(
+                                                                          sessions: snapshot
+                                                                              .data!
+                                                                              .day_2
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2),
+                                                                          hallIndex:
+                                                                              index,
+                                                                          sessionIndex:
+                                                                              indexList2,
+                                                                          allSessionsList: snapshot
+                                                                              .data!
+                                                                              .day_2
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions,
+                                                                          comingFrom: snapshot
+                                                                              .data!
+                                                                              .day_2
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2)
+                                                                              .sessionName
+                                                                              .toString()
+                                                                              .toLowerCase(),
+                                                                        )));
+                                                      } catch (e) {
                                                         print(e);
                                                       }
-
                                                     },
                                                     child: Container(
                                                       width:
@@ -934,7 +979,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                   children: [
                                     SizedBox(height: 5.h),
                                     Visibility(
-                                      visible: snapshot.data!.day_3.dayHalls.elementAt(index)
+                                      visible: snapshot.data!.day_3.dayHalls
+                                          .elementAt(index)
                                           .hallDetail
                                           .toString()
                                           .isNotEmpty,
@@ -995,45 +1041,50 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                             // padding:
                                             //     const EdgeInsets.only(bottom: 20),
                                             itemCount: snapshot
-                                                .data?.day_3.dayHalls.elementAt(index)
-                                                .hallSessions.length,
+                                                .data?.day_3.dayHalls
+                                                .elementAt(index)
+                                                .hallSessions
+                                                .length,
                                             itemBuilder: (context, indexList2) {
                                               return Column(
                                                 children: [
                                                   InkWell(
                                                     onTap: () {
-                                                      try{
+                                                      try {
                                                         Navigator.of(context).push(
                                                             MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    SessionDetail(
-                                                                      sessions: snapshot
-                                                                          .data
-                                                                          ?.day_3.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions.elementAt(
-                                                                          indexList2),
-                                                                      hallIndex:
-                                                                      index,
-                                                                      sessionIndex:
-                                                                      indexList2,
-                                                                      allSessionsList: snapshot
-                                                                          .data
-                                                                          ?.day_3.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions,
-                                                                      comingFrom: snapshot
-                                                                          .data
-                                                                          ?.day_3.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions.elementAt(
-                                                                          indexList2)
-                                                                          .sessionName
-                                                                          .toString()
-                                                                          .toLowerCase(),
-                                                                    )));
-                                                      }
-                                                      catch(e) {
+                                                                builder:
+                                                                    (context) =>
+                                                                        SessionDetail(
+                                                                          sessions: snapshot
+                                                                              .data
+                                                                              ?.day_3
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2),
+                                                                          hallIndex:
+                                                                              index,
+                                                                          sessionIndex:
+                                                                              indexList2,
+                                                                          allSessionsList: snapshot
+                                                                              .data
+                                                                              ?.day_3
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions,
+                                                                          comingFrom: snapshot
+                                                                              .data
+                                                                              ?.day_3
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2)
+                                                                              .sessionName
+                                                                              .toString()
+                                                                              .toLowerCase(),
+                                                                        )));
+                                                      } catch (e) {
                                                         print(e);
                                                       }
                                                     },
@@ -1222,7 +1273,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                   children: [
                                     SizedBox(height: 5.h),
                                     Visibility(
-                                      visible: snapshot.data!.day_4.dayHalls.elementAt(index)
+                                      visible: snapshot.data!.day_4.dayHalls
+                                          .elementAt(index)
                                           .hallDetail
                                           .toString()
                                           .isNotEmpty,
@@ -1283,48 +1335,52 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                             // padding:
                                             //     const EdgeInsets.only(bottom: 20),
                                             itemCount: snapshot
-                                                .data?.day_4.dayHalls.elementAt(index)
-                                                .hallSessions.length,
+                                                .data?.day_4.dayHalls
+                                                .elementAt(index)
+                                                .hallSessions
+                                                .length,
                                             itemBuilder: (context, indexList2) {
                                               return Column(
                                                 children: [
                                                   InkWell(
                                                     onTap: () {
-                                                      try{
+                                                      try {
                                                         Navigator.of(context).push(
                                                             MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    SessionDetail(
-                                                                      sessions: snapshot
-                                                                          .data
-                                                                          ?.day_4.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions.elementAt(
-                                                                          indexList2),
-                                                                      hallIndex:
-                                                                      index,
-                                                                      sessionIndex:
-                                                                      indexList2,
-                                                                      allSessionsList: snapshot
-                                                                          .data
-                                                                          ?.day_4.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions,
-                                                                      comingFrom: snapshot
-                                                                          .data
-                                                                          ?.day_4.dayHalls.elementAt(
-                                                                          index)
-                                                                          .hallSessions.elementAt(
-                                                                          indexList2)
-                                                                          .sessionName
-                                                                          .toString()
-                                                                          .toLowerCase(),
-                                                                    )));
-                                                      }
-                                                      catch(e) {
+                                                                builder:
+                                                                    (context) =>
+                                                                        SessionDetail(
+                                                                          sessions: snapshot
+                                                                              .data
+                                                                              ?.day_4
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2),
+                                                                          hallIndex:
+                                                                              index,
+                                                                          sessionIndex:
+                                                                              indexList2,
+                                                                          allSessionsList: snapshot
+                                                                              .data
+                                                                              ?.day_4
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions,
+                                                                          comingFrom: snapshot
+                                                                              .data
+                                                                              ?.day_4
+                                                                              .dayHalls
+                                                                              .elementAt(index)
+                                                                              .hallSessions
+                                                                              .elementAt(indexList2)
+                                                                              .sessionName
+                                                                              .toString()
+                                                                              .toLowerCase(),
+                                                                        )));
+                                                      } catch (e) {
                                                         print(e);
                                                       }
-
                                                     },
                                                     child: Container(
                                                       width:

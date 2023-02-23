@@ -276,7 +276,7 @@ class SessionByDayController {
 
   Future<List<HallSessions>> getTypeData(day, type) async {
     Data? event;
-    print(type);
+    // print(type);
     List<HallSessions> allhallSessions = [];
 
     event = Data.fromJson(jsonDecode(jsondata), 'day_1');

@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -28,8 +30,8 @@ class ProgramController {
     print(id);
   }
 
-  createNotif(Notif session) async {
-    int result = 0;
+  createNotif(CustomNotifications session) async {
+    // int result = 0;
     final Database db = await initializeDB();
     final id = await db.insert(
       'Notifications',
@@ -60,7 +62,7 @@ class SqliteService {
     }
   }
 
-  Future<List<Notif>> getNotif() async {
+  Future<List<CustomNotifications>> getNotif() async {
     String path = await getDatabasesPath();
     var db = await openDatabase(
       join(path, 'database.db'),
@@ -74,7 +76,7 @@ class SqliteService {
     final List<Map<String, Object?>> queryResult =
         await db.query('Notifications');
     print(queryResult.map((e) => e['description'].toString()).toList());
-    return queryResult.map((e) => Notif.fromMap(e)).toList();
+    return queryResult.map((e) => CustomNotifications.fromMap(e)).toList();
   }
 
   deleteItem(name) async {
@@ -128,15 +130,15 @@ class Sessions {
   }
 }
 
-class Notif {
+class CustomNotifications {
   int? id;
-  var title;
-  var description;
-  var time;
+  dynamic title;
+  dynamic description;
+  dynamic time;
 
-  Notif({this.id, this.description, this.title, this.time});
+  CustomNotifications({this.id, this.description, this.title, this.time});
 
-  Notif.fromMap(Map<String, dynamic> item)
+  CustomNotifications.fromMap(Map<String, dynamic> item)
       : description = item["description"],
         title = item['title'],
         time = item['time'];

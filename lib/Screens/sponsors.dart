@@ -13,8 +13,7 @@ class Sponsors extends StatefulWidget {
 
 class _SponsorsState extends State<Sponsors> {
   int index = 0;
-  final SessionByDayController _sessionByDayController =
-      SessionByDayController();
+  // final SessionByDayController _sessionByDayController = SessionByDayController();
   var day = '0';
   var type = '';
   GlobalKey streamKey = GlobalKey();

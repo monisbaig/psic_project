@@ -97,13 +97,12 @@ class _SessionByTypeScreenPageState extends State<SessionByTypeScreenPage> {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 10),
                                       itemCount:
-                                          snapshot.data!.sessionTypes!.length,
+                                          snapshot.data!.sessionTypes.length,
                                       itemBuilder: (context, indexList) {
                                         return InkWell(
                                           onTap: () {
                                             setState(() {
-                                              type = snapshot
-                                                  .data!.sessionTypes!
+                                              type = snapshot.data!.sessionTypes
                                                   .elementAt(indexList);
                                               index = indexList;
                                             });
@@ -133,7 +132,7 @@ class _SessionByTypeScreenPageState extends State<SessionByTypeScreenPage> {
                                                   : indexList + 1 ==
                                                           snapshot
                                                               .data
-                                                              ?.sessionTypes!
+                                                              ?.sessionTypes
                                                               .length
                                                       ? const BorderRadius.only(
                                                           bottomLeft:
@@ -147,7 +146,7 @@ class _SessionByTypeScreenPageState extends State<SessionByTypeScreenPage> {
                                             ),
                                             child: Center(
                                                 child: Text(
-                                              '${snapshot.data?.sessionTypes!.elementAt(indexList).toString()}',
+                                              '${snapshot.data?.sessionTypes.elementAt(indexList).toString()}',
                                               style: TextStyle(
                                                 color: index != indexList
                                                     ? Colors.black

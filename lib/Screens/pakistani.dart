@@ -73,7 +73,7 @@ class _PakistaniState extends State<Pakistani> {
                         ),
                         Visibility(
                           visible:
-                              index <= snapshot.data!.day_1!.dayHalls!.length,
+                              index <= snapshot.data!.day_1.dayHalls.length,
                           child: Column(
                             children: [
                               // Text(
@@ -95,7 +95,7 @@ class _PakistaniState extends State<Pakistani> {
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 10),
                                     itemCount:
-                                        snapshot.data?.localFaculty!.length,
+                                        snapshot.data?.localFaculty.length,
                                     itemBuilder: (context, indexList2) {
                                       return Padding(
                                         padding: const EdgeInsets.only(top: 10),
@@ -129,7 +129,7 @@ class _PakistaniState extends State<Pakistani> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                        '${snapshot.data?.localFaculty!.elementAt(indexList2).toString()}'),
+                                                        '${snapshot.data?.localFaculty.elementAt(indexList2).toString()}'),
                                                   ],
                                                 ),
                                               ),

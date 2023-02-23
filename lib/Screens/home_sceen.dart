@@ -101,7 +101,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
       /// Display Notification, send null to not display
       event.complete(event.notification);
       Random random = Random();
-      controller.createNotif(Notif(
+      controller.createNotif(CustomNotifications(
           title: event.notification.title,
           description: event.notification.body,
           id: random.nextInt(1000),
@@ -853,7 +853,7 @@ class _NotificationScreenPageState extends State<NotificationScreenPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              FutureBuilder<List<Notif>>(
+              FutureBuilder<List<CustomNotifications>>(
                 future: sqliteService.getNotif(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {

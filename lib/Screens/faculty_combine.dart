@@ -135,7 +135,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                             children: [
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_1!.dayHalls!.length,
+                                    snapshot.data!.day_1.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // Text(
@@ -159,7 +159,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 10),
                                           itemCount: snapshot
-                                              .data?.foreignFaculty!.length,
+                                              .data?.foreignFaculty.length,
                                           itemBuilder: (context, indexList2) {
                                             return Padding(
                                               padding: const EdgeInsets.only(
@@ -201,7 +201,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                              '${snapshot.data?.foreignFaculty!.elementAt(indexList2).toString()}'),
+                                                              '${snapshot.data?.foreignFaculty.elementAt(indexList2).toString()}'),
                                                         ],
                                                       ),
                                                     ),
@@ -258,7 +258,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                             children: [
                               Visibility(
                                 visible: index <=
-                                    snapshot.data!.day_1!.dayHalls!.length,
+                                    snapshot.data!.day_1.dayHalls.length,
                                 child: Column(
                                   children: [
                                     // Text(
@@ -282,7 +282,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 10),
                                           itemCount: snapshot
-                                              .data?.localFaculty!.length,
+                                              .data?.localFaculty.length,
                                           itemBuilder: (context, indexList2) {
                                             return Padding(
                                               padding: const EdgeInsets.only(
@@ -324,7 +324,7 @@ class _CombineFacultyState extends State<CombineFaculty> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                              '${snapshot.data?.localFaculty!.elementAt(indexList2).toString()}'),
+                                                              '${snapshot.data?.localFaculty.elementAt(indexList2).toString()}'),
                                                         ],
                                                       ),
                                                     ),

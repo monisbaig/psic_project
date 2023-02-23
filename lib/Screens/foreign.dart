@@ -77,7 +77,7 @@ class _ForeignState extends State<Foreign> {
                         ),
                         Visibility(
                           visible:
-                              index <= snapshot.data!.day_1!.dayHalls!.length,
+                              index <= snapshot.data!.day_1.dayHalls.length,
                           child: Column(
                             children: [
                               // Text(
@@ -99,7 +99,7 @@ class _ForeignState extends State<Foreign> {
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 10),
                                     itemCount:
-                                        snapshot.data?.foreignFaculty!.length,
+                                        snapshot.data?.foreignFaculty.length,
                                     itemBuilder: (context, indexList2) {
                                       return Padding(
                                         padding: const EdgeInsets.only(top: 10),
@@ -133,7 +133,7 @@ class _ForeignState extends State<Foreign> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                        '${snapshot.data?.foreignFaculty!.elementAt(indexList2).toString()}'),
+                                                        '${snapshot.data?.foreignFaculty.elementAt(indexList2).toString()}'),
                                                   ],
                                                 ),
                                               ),
