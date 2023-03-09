@@ -17,7 +17,6 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
   int index = 0;
   final SessionByDayController _sessionByDayController =
       SessionByDayController();
-  var day = '0';
   GlobalKey streamkey = GlobalKey();
   List<HallSessions>? allhallSessions = [];
   var current = 1;
@@ -71,9 +70,7 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Visibility(
                           visible: index <= snapshot.data!.length,
                           child: Column(
@@ -86,36 +83,56 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                         vertical: 10),
                                     itemCount: snapshot.data?.length,
                                     itemBuilder: (context, indexList2) {
-                                      var date = 0;
-                                      var time = 0;
+                                      dynamic date = 0;
+                                      dynamic time = 0;
+                                      dynamic endTime = 0;
                                       try {
-                                        time = int.parse(snapshot.data!
-                                            .elementAt(indexList2)
-                                            .sessionTime!
-                                            .replaceAll(' ', '')
-                                            .split('-')
-                                            .first
-                                            .split(':')
-                                            .first);
-                                        date = int.fromEnvironment(snapshot
-                                            .data!
-                                            .elementAt(indexList2)
-                                            .sessionDate!
-                                            .replaceAll(' ', '')
-                                            .split('/')
-                                            .first);
+                                        time = int.parse(
+                                          snapshot.data!
+                                              .elementAt(indexList2)
+                                              .sessionTime!
+                                              .replaceAll(' ', '')
+                                              .split('-')
+                                              .first
+                                              .split(':')
+                                              .first,
+                                        );
+
+                                        endTime = int.parse(
+                                          snapshot.data!
+                                              .elementAt(indexList2)
+                                              .sessionTime!
+                                              .replaceAll('-', ',')
+                                              .replaceAll(':', ',')
+                                              .split(',')
+                                              .elementAt(2)
+                                              .toString(),
+                                        );
+
+                                        date = int.parse(
+                                          snapshot.data!
+                                              .elementAt(indexList2)
+                                              .sessionDate!
+                                              .replaceAll(',', '')
+                                              .split(' ')
+                                              .toList()
+                                              .elementAt(1)
+                                              .toString(),
+                                        );
                                       } catch (ex) {
                                         rethrow;
                                       }
-                                      //print(snapshot.data?.elementAt(indexList2).sessionTime!.split('-').first.split(':').first);
-                                      // &&
-                                      if (time >= DateTime.now().hour &&
-                                          (snapshot.data!
-                                                  .elementAt(indexList2)
-                                                  .sessionDate!
-                                                  .contains('-')
-                                              ? false
-                                              : DateTime.now().day == date)) {
+
+                                      // if (time >= DateTime.now().month &&
+                                      //     (snapshot.data!
+                                      //         .elementAt(indexList2)
+                                      //         .sessionDate!
+                                      //         .contains('-')
+                                      //         ? false
+                                      //         : DateTime.now().day == date))
+
+                                      if (endTime > DateTime.now().hour &&
+                                          DateTime.now().day == date) {
                                         return Padding(
                                           padding:
                                               const EdgeInsets.only(top: 10),
@@ -127,14 +144,26 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               SessionDetail(
-                                                                sessions: allhallSessions
+                                                                sessions: snapshot
+                                                                    .data
                                                                     ?.elementAt(
                                                                         indexList2),
-                                                                allSessionsList:
-                                                                    allhallSessions,
                                                                 sessionIndex:
                                                                     indexList2,
+                                                                allSessionsList:
+                                                                    snapshot
+                                                                        .data,
                                                               )));
+                                                  // Navigator.of(context).push(
+                                                  //     MaterialPageRoute(
+                                                  //         builder: (context) => SessionDetail(
+                                                  //             sessions: allhallSessions
+                                                  //                 ?.elementAt(
+                                                  //                     indexList2),
+                                                  //             allSessionsList:
+                                                  //                 allhallSessions,
+                                                  //             sessionIndex:
+                                                  //                 indexList2)));
                                                 },
                                                 child: Container(
                                                   padding:
@@ -145,10 +174,11 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                                     color: Colors.white,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade400,
-                                                          spreadRadius: 1,
-                                                          blurRadius: 5)
+                                                        color: Colors
+                                                            .grey.shade400,
+                                                        spreadRadius: 1,
+                                                        blurRadius: 5,
+                                                      )
                                                     ],
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -239,12 +269,23 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                                                       builder: (context) =>
                                                                           SessionDetail(
                                                                             sessions:
-                                                                                allhallSessions?.elementAt(indexList2),
-                                                                            allSessionsList:
-                                                                                allhallSessions,
+                                                                                snapshot.data?.elementAt(indexList2),
                                                                             sessionIndex:
                                                                                 indexList2,
+                                                                            allSessionsList:
+                                                                                snapshot.data,
                                                                           )));
+                                                              // Navigator.of(context).push(
+                                                              //     MaterialPageRoute(
+                                                              //         builder: (context) =>
+                                                              //             SessionDetail(
+                                                              //               sessions:
+                                                              //                   allhallSessions?.elementAt(indexList2),
+                                                              //               allSessionsList:
+                                                              //                   allhallSessions,
+                                                              //               sessionIndex:
+                                                              //                   indexList2,
+                                                              //             )));
                                                             },
                                                             child: InkWell(
                                                               onTap: () {
@@ -258,7 +299,7 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                                                             )));
                                                               },
                                                               child: Text(
-                                                                '${snapshot.data?.elementAt(indexList2).sessionDetail!.replaceAll('<br />', '')}',
+                                                                '${snapshot.data?.elementAt(indexList2).sessionDetail!.replaceAll('<br />', '').replaceAll('\n', '')}',
                                                                 maxLines: 100,
                                                                 style:
                                                                     const TextStyle(

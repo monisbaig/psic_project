@@ -781,7 +781,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                       .replaceAll('>', '')
                                       .replaceAll('/', '')
                                       .replaceAll('<', '') ??
-                                  '12345678',
+                                  'Empty Data',
                               style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,

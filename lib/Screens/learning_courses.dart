@@ -216,7 +216,7 @@ class _LearningPageState extends State<LearningPage> {
                                                               .size
                                                               .width,
                                                       child: Text(
-                                                        '${snapshot.data?.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
+                                                        '${snapshot.data?.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '').replaceAll('\n', '')}',
                                                         maxLines: 100,
                                                         style: const TextStyle(
                                                           color:

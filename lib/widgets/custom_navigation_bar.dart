@@ -31,14 +31,20 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
     final isValid = formKey.currentState!.validate();
     if (isValid) {
       FocusScope.of(context).unfocus();
-      FirebaseFirestore.instance.collection('users').add({
+      var uID = DateTime.now().microsecondsSinceEpoch.toString();
+      FirebaseFirestore.instance.collection('users').doc(uID).set({
         'username': _enteredUsername,
         'comments': _enteredComment,
-        'createdAt': Timestamp.now(),
+        'createdAt': DateTime.now(),
+        'uId': uID,
       });
       _usernameController.clear();
       _commentController.clear();
-      Navigator.of(context).pop;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Comment Sent Successfully'),
+        ),
+      );
     }
   }
 
@@ -92,7 +98,7 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    'My Dashboard',
+                    'Dashboard',
                     style: TextStyle(
                       fontSize: 11.sp,
                       color: const Color(0xff8e3434),
@@ -207,7 +213,10 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                                     ),
                                     SizedBox(width: 8.w),
                                     ElevatedButton(
-                                      onPressed: _onSubmit,
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        _onSubmit();
+                                      },
                                       child: const Text('Submit'),
                                     ),
                                   ],

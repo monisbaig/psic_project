@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:async';
 import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
