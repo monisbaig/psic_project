@@ -36,6 +36,7 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
         'username': _enteredUsername,
         'comments': _enteredComment,
         'createdAt': DateTime.now(),
+        'sent': false,
         'uId': uID,
       });
       _usernameController.clear();
