@@ -132,10 +132,11 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                     ],
                   ),
                   const SizedBox(height: 5),
-                  const Text(
+                  Text(
                     'Home',
                     style: TextStyle(
-                      color: Color(0xff8e3434),
+                      color: const Color(0xff8e3434),
+                      fontSize: 13.sp,
                     ),
                   ),
                 ],
@@ -235,10 +236,11 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                     ],
                   ),
                   SizedBox(height: 5.h),
-                  const Text(
+                  Text(
                     'Interact',
                     style: TextStyle(
-                      color: Color(0xff8e3434),
+                      color: const Color(0xff8e3434),
+                      fontSize: 13.sp,
                     ),
                   ),
                 ],
