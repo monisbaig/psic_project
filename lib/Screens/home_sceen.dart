@@ -229,7 +229,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: 14.h),
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.19.h,
                     width: 325.w,
@@ -245,21 +245,22 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 //   constraints: BoxConstraints.expand(
                 //     height: 320.h,
                 //   ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.aspectRatio * 665.h,
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 13,
-                    physics: const NeverScrollableScrollPhysics(),
-                    childAspectRatio: 2,
-                    children: List.generate(
-                      8,
-                      (index) {
-                        return Container(
-                          child: getMainMenus(index),
-                        );
-                      },
-                    ),
+                // height: MediaQuery.of(context).size.aspectRatio * 665.h,
+                // width: MediaQuery.of(context).size.width,
+                GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 13,
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  childAspectRatio: 2,
+                  children: List.generate(
+                    8,
+                    (index) {
+                      return Container(
+                        child: getMainMenus(index),
+                      );
+                    },
                   ),
                 ),
                 Column(
@@ -461,7 +462,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const SessionByDayScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, left: 10),
+            margin: EdgeInsets.only(top: 10.h, left: 10.w),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -473,7 +474,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   )
                 ]),
             child: Padding(
-              padding: const EdgeInsets.all(13.0),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -504,17 +505,20 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const ProgramScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, right: 10),
+            margin: EdgeInsets.only(top: 10.h, right: 10.w),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.shade400, spreadRadius: 1, blurRadius: 5)
+                  color: Colors.grey.shade400,
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                ),
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -541,11 +545,14 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
       case 2:
         return InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SessionByTypeScreenPage()));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const SessionByTypeScreenPage(),
+              ),
+            );
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, left: 10),
+            margin: EdgeInsets.only(top: 10.h, left: 10.w),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -557,7 +564,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   )
                 ]),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -588,7 +595,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const WhatsHappeningScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, right: 10),
+            margin: EdgeInsets.only(top: 10.h, right: 10.w),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -599,7 +606,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       blurRadius: 5)
                 ]),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -630,7 +637,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const CaseCornerScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, left: 10),
+            margin: EdgeInsets.only(top: 10.h, left: 10.w),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5),
@@ -643,7 +650,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -671,10 +678,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
         return InkWell(
           onTap: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const LearningPage()));
+              MaterialPageRoute(
+                builder: (context) => const LearningPage(),
+              ),
+            );
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, right: 10),
+            margin: EdgeInsets.only(top: 10.h, right: 10.w),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -685,7 +695,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       blurRadius: 5)
                 ]),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -716,7 +726,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const FellowCoursesScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, left: 10),
+            margin: EdgeInsets.only(top: 10.h, left: 10.w),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5),
@@ -726,7 +736,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -757,7 +767,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 builder: (context) => const WorkShopScreenPage()));
           },
           child: Container(
-            margin: const EdgeInsets.only(top: 10, right: 10),
+            margin: EdgeInsets.only(top: 10.h, right: 10.w),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5),
@@ -769,7 +779,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -807,12 +817,6 @@ class NotificationScreenPage extends StatefulWidget {
 
 class _NotificationScreenPageState extends State<NotificationScreenPage> {
   SqliteService sqliteService = SqliteService();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
