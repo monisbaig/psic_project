@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,30 +49,22 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDdsEMKji7HlKn-4TvT-1P5z80zf2l9cLk',
-    appId: '1:453421016006:web:0eb64a5cf3cd416b17c8c7',
-    messagingSenderId: '453421016006',
-    projectId: 'stacked-demo-project',
-    authDomain: 'stacked-demo-project.firebaseapp.com',
-    storageBucket: 'stacked-demo-project.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDQHy5sGLIl3Y96q0du7t2T9iVmCBgetTs',
-    appId: '1:453421016006:android:687b0531da0089fa17c8c7',
-    messagingSenderId: '453421016006',
-    projectId: 'stacked-demo-project',
-    storageBucket: 'stacked-demo-project.appspot.com',
+    apiKey: 'AIzaSyCFsk_51K0qFvwMn4IICrGvcK4bZS6Ia9I',
+    appId: '1:289130129727:android:25c903e7f830e76d264b8a',
+    messagingSenderId: '289130129727',
+    projectId: 'pakistan-live-da173',
+    storageBucket: 'pakistan-live-da173.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAM5IDdc6KGov9JRvuVsDpxWbGWaNe-Cos',
-    appId: '1:453421016006:ios:5e5944063f8467d717c8c7',
-    messagingSenderId: '453421016006',
-    projectId: 'stacked-demo-project',
-    storageBucket: 'stacked-demo-project.appspot.com',
-    iosClientId: '453421016006-pbe8s5ea8vheoap36hb5ooirhj2jt4po.apps.googleusercontent.com',
-    iosBundleId: 'com.example.stackedDemo',
+    apiKey: 'AIzaSyD5vqnJMFOlrLgMLhCfse104faRJKfO0Jw',
+    appId: '1:289130129727:ios:ba0097e0746e4c93264b8a',
+    messagingSenderId: '289130129727',
+    projectId: 'pakistan-live-da173',
+    storageBucket: 'pakistan-live-da173.appspot.com',
+    iosClientId:
+        '289130129727-f4aj9mjrvh00eod3rih6ijfg1l9akqae.apps.googleusercontent.com',
+    iosBundleId: 'com.stackbuffers.psic_project',
   );
 }

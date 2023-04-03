@@ -27,6 +27,13 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
   final TextEditingController _commentController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
+  String? selectedHall;
+  List<String> halls = [
+    'Hall A',
+    'Hall B',
+    'Hall C',
+  ];
+
   void _onSubmit() {
     final isValid = formKey.currentState!.validate();
     if (isValid) {
@@ -35,12 +42,14 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
       FirebaseFirestore.instance.collection('users').doc(uID).set({
         'username': _enteredUsername,
         'comments': _enteredComment,
+        'hall': selectedHall,
         'createdAt': DateTime.now(),
         'sent': false,
         'uId': uID,
       });
       _usernameController.clear();
       _commentController.clear();
+      Navigator.pop(context);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Comment Sent Successfully'),
@@ -194,6 +203,30 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                                           });
                                         },
                                       ),
+                                      const SizedBox(height: 10),
+                                      DropdownButtonFormField(
+                                        borderRadius: BorderRadius.circular(12),
+                                        validator: (value) {
+                                          if (value == null) {
+                                            return 'Please select hall first';
+                                          }
+                                          return null;
+                                        },
+                                        hint: const Text('Select Hall'),
+                                        value: selectedHall,
+                                        onChanged: (String? value) {
+                                          setState(() {
+                                            selectedHall = value!;
+                                          });
+                                        },
+                                        items: halls.map((e) {
+                                          return DropdownMenuItem(
+                                            alignment: Alignment.center,
+                                            value: e,
+                                            child: Text(e),
+                                          );
+                                        }).toList(),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -216,7 +249,6 @@ class CustomNavigationBarState extends State<CustomNavigationBar> {
                                     SizedBox(width: 8.w),
                                     ElevatedButton(
                                       onPressed: () {
-                                        Navigator.pop(context);
                                         _onSubmit();
                                       },
                                       child: const Text('Submit'),

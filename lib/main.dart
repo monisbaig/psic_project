@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psic_project/Screens/home_sceen.dart';
-
-import 'firebase_options.dart';
+import 'package:psic_project/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
