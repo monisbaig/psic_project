@@ -13,8 +13,7 @@ class SessionByDayScreenPage extends StatefulWidget {
   State<SessionByDayScreenPage> createState() => _SessionByDayScreenPageState();
 }
 
-class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
-    with TickerProviderStateMixin {
+class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
   int index = 0;
   final SessionByDayController _sessionByDayController =
       SessionByDayController();
@@ -30,7 +29,6 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
 
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 4, vsync: this);
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavigationBar(),
@@ -104,10 +102,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                               children: [
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Text(
-                                      'March 2023',
-                                      style: TextStyle(
+                                      snapshot.data!.eventDates.substring(8),
+                                      style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 20,
@@ -457,7 +455,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                         SizedBox(height: 5.h),
                         if (day == 'day_1')
                           SizedBox(
-                            height: 360.h,
+                            // height: 360.h,
                             width: double.maxFinite,
                             child: Visibility(
                               visible:
@@ -510,7 +508,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                     ),
                                   ),
                                   SizedBox(
-                                    height: tabHeight,
+                                    // height: tabHeight,
                                     // (snapshot.data?.day_1.dayHalls.length ??
                                     //             0) >
                                     //         2
@@ -522,6 +520,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                       context: context,
                                       removeTop: true,
                                       child: ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: const ScrollPhysics(),
                                           // padding:
                                           //     const EdgeInsets.only(bottom: 20),
                                           itemCount: snapshot
@@ -766,7 +766,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                           ),
                         if (day == 'day_2')
                           SizedBox(
-                            height: 360.h,
+                            // height: 360.h,
                             width: double.maxFinite,
                             child: Visibility(
                               visible:
@@ -819,7 +819,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                     ),
                                   ),
                                   SizedBox(
-                                    height: tabHeight,
+                                    // height: tabHeight,
                                     // (snapshot.data?.day_2.dayHalls.length ??
                                     //             0) >
                                     //         2
@@ -831,6 +831,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                       context: context,
                                       removeTop: true,
                                       child: ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: const ScrollPhysics(),
                                           // padding:
                                           //     const EdgeInsets.only(bottom: 20),
                                           itemCount: snapshot
@@ -1071,7 +1073,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                           ),
                         if (day == 'day_3')
                           SizedBox(
-                            height: 360.h,
+                            // height: 360.h,
                             width: double.maxFinite,
                             child: Visibility(
                               visible:
@@ -1124,7 +1126,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                     ),
                                   ),
                                   SizedBox(
-                                    height: tabHeight,
+                                    // height: tabHeight,
                                     // (snapshot.data?.day_3.dayHalls.length ??
                                     //             0) >
                                     //         2
@@ -1136,6 +1138,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                       context: context,
                                       removeTop: true,
                                       child: ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: const ScrollPhysics(),
                                           // padding:
                                           //     const EdgeInsets.only(bottom: 20),
                                           itemCount: snapshot
@@ -1376,7 +1380,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                           ),
                         if (day == 'day_4')
                           SizedBox(
-                            height: 360.h,
+                            // height: 360.h,
                             width: double.maxFinite,
                             child: Visibility(
                               visible:
@@ -1429,7 +1433,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                     ),
                                   ),
                                   SizedBox(
-                                    height: tabHeight,
+                                    // height: tabHeight,
                                     // (snapshot.data?.day_4.dayHalls.length ??
                                     //             0) >
                                     //         2
@@ -1441,6 +1445,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage>
                                       context: context,
                                       removeTop: true,
                                       child: ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: const ScrollPhysics(),
                                           // padding:
                                           //     const EdgeInsets.only(bottom: 20),
                                           itemCount: snapshot

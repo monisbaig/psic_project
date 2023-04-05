@@ -101,10 +101,10 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               children: [
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
+                                  children: [
                                     Text(
-                                      'March 2023',
-                                      style: TextStyle(
+                                      snapshot.data!.eventDates.substring(8),
+                                      style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 20,
