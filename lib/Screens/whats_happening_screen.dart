@@ -91,11 +91,11 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                           snapshot.data!
                                               .elementAt(indexList2)
                                               .sessionTime!
-                                              .replaceAll(' ', '')
-                                              .split('-')
-                                              .first
-                                              .split(':')
-                                              .first,
+                                              .replaceAll('-', ',')
+                                              .replaceAll(':', ',')
+                                              .split(',')
+                                              .elementAt(0)
+                                              .toString(),
                                         );
 
                                         endTime = int.parse(
@@ -122,6 +122,10 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                       } catch (ex) {
                                         rethrow;
                                       }
+
+                                      print('Time: $time');
+                                      print('EndTime: $endTime');
+                                      print('Date: $date');
 
                                       // if (time >= DateTime.now().month &&
                                       //     (snapshot.data!

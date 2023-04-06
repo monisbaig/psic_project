@@ -81,6 +81,8 @@ class SessionByDayController {
 
       event =
           Data.fromJson(jsonDecode(jsondata) as Map<String, dynamic>, '$day');
+      print(event);
+      print(prefs.getString('data'));
       return event;
     } catch (e) {
       rethrow;

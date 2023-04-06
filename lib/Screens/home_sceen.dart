@@ -656,8 +656,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/case corner icon.svg',
-                    width: 25.w,
-                    height: 25.h,
+                    width: 22.w,
+                    height: 22.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(

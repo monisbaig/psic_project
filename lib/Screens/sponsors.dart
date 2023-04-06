@@ -71,9 +71,7 @@ class _SponsorsState extends State<Sponsors> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               Column(
                 children: [
                   // Text(
@@ -83,12 +81,9 @@ class _SponsorsState extends State<Sponsors> {
                   //     fontWeight: FontWeight.w700,
                   //   ),
                   // ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    height: 50,
                     padding: const EdgeInsets.all(1),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -96,6 +91,7 @@ class _SponsorsState extends State<Sponsors> {
                       border: Border.all(width: 0.05),
                     ),
                     child: GridView.builder(
+                        shrinkWrap: true,
                         padding: const EdgeInsets.symmetric(vertical: 0),
                         itemCount: spons.length,
                         itemBuilder: (context, indexlist) {
@@ -141,13 +137,8 @@ class _SponsorsState extends State<Sponsors> {
                     height: MediaQuery.of(context).size.height * 0.75,
                     child: ListView.builder(
                         padding: const EdgeInsets.symmetric(vertical: 10),
-                        itemCount: index != 0
-                            ? jsonDecode(jsondata)['event_sponsors']
-                                    ['general_sponsors']
-                                .length
-                            : jsonDecode(jsondata)['event_sponsors']
-                                    ['platinum_sponsors']
-                                .length,
+                        itemCount:
+                            jsonDecode(jsondata)['event_sponsors'].length ?? 0,
                         itemBuilder: (context, indexList2) {
                           return Padding(
                             padding: const EdgeInsets.only(top: 10),
@@ -180,14 +171,18 @@ class _SponsorsState extends State<Sponsors> {
                                           height: 60,
                                           width: 60,
                                           decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              image: DecorationImage(
-                                                  fit: BoxFit.fill,
-                                                  image: NetworkImage(
-                                                      '${index != 0 ? jsonDecode(jsondata)['event_sponsors']['general_sponsors'].elementAt(indexList2)['logo'] : jsonDecode(jsondata)['event_sponsors']['platinum_sponsors'].elementAt(indexList2)['logo']}'))),
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: NetworkImage(
+                                                '${index != 0 ? jsonDecode(jsondata)['event_sponsors']['general_sponsors'].elementAt(indexList2)['logo'] : jsonDecode(jsondata)['event_sponsors']['platinum_sponsors'].elementAt(indexList2)['logo']}',
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                         Text(
-                                            '  ${index != 0 ? jsonDecode(jsondata)['event_sponsors']['general_sponsors'].elementAt(indexList2)['name'] : jsonDecode(jsondata)['event_sponsors']['platinum_sponsors'].elementAt(indexList2)['name']}'),
+                                          '${index != 0 ? jsonDecode(jsondata)['event_sponsors']['general_sponsors'].elementAt(indexList2)['name'] : jsonDecode(jsondata)['event_sponsors']['platinum_sponsors'].elementAt(indexList2)['name']}',
+                                        ),
                                       ],
                                     ),
                                   ),

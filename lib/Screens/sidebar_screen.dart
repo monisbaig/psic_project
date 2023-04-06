@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:psic_project/Screens/contact_screen.dart';
 import 'package:psic_project/Screens/foreign.dart';
 import 'package:psic_project/Screens/pakistani.dart';
-import 'package:psic_project/Screens/sponsors.dart';
+import 'package:psic_project/Screens/sponsors_test.dart';
 
 class SidebarScreenPage extends StatefulWidget {
   const SidebarScreenPage({Key? key}) : super(key: key);
@@ -69,8 +69,8 @@ class _SidebarScreenPageState extends State<SidebarScreenPage> {
           ),
           InkWell(
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Sponsors()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SponsorsTest()));
             },
             child: const ListTile(
               horizontalTitleGap: 0,

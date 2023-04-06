@@ -145,7 +145,13 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 ? const Color(0xff8e3434)
                                                 : Colors.transparent),
                                         child: Text(
-                                          '${snapshot.data?.day_1.dayDate.replaceAll(',', '').split(' ').toList().elementAt(1).toString()}',
+                                          snapshot.data?.day_1.dayDate
+                                                  .replaceAll(',', '')
+                                                  .split(' ')
+                                                  .toList()
+                                                  .elementAt(1)
+                                                  .toString() ??
+                                              'Empty Data',
                                           style: TextStyle(
                                               color: day == 'day_1'
                                                   ? Colors.white
@@ -169,7 +175,13 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 ? const Color(0xff8e3434)
                                                 : Colors.transparent),
                                         child: Text(
-                                          '${snapshot.data?.day_2.dayDate.replaceAll(',', '').split(' ').toList().elementAt(1).toString()}',
+                                          snapshot.data?.day_2.dayDate
+                                                  .replaceAll(',', '')
+                                                  .split(' ')
+                                                  .toList()
+                                                  .elementAt(1)
+                                                  .toString() ??
+                                              'Empty Data',
                                           style: TextStyle(
                                               color: day == 'day_2'
                                                   ? Colors.white
@@ -193,7 +205,13 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 ? const Color(0xff8e3434)
                                                 : Colors.transparent),
                                         child: Text(
-                                          '${snapshot.data?.day_3.dayDate.replaceAll(',', '').split(' ').toList().elementAt(1).toString()}',
+                                          snapshot.data?.day_3.dayDate
+                                                  .replaceAll(',', '')
+                                                  .split(' ')
+                                                  .toList()
+                                                  .elementAt(1)
+                                                  .toString() ??
+                                              'Empty Data',
                                           style: TextStyle(
                                               color: day == 'day_3'
                                                   ? Colors.white
@@ -217,7 +235,13 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 ? const Color(0xff8e3434)
                                                 : Colors.transparent),
                                         child: Text(
-                                          '${snapshot.data?.day_4.dayDate.replaceAll(',', '').split(' ').toList().elementAt(1).toString()}',
+                                          snapshot.data?.day_4.dayDate
+                                                  .replaceAll(',', '')
+                                                  .split(' ')
+                                                  .toList()
+                                                  .elementAt(1)
+                                                  .toString() ??
+                                              'Empty Data',
                                           style: TextStyle(
                                               color: day == 'day_4'
                                                   ? Colors.white
@@ -268,7 +292,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        '${snapshot.data?.day_1.dayHalls.elementAt(indexList).hallName}',
+                                        snapshot.data?.day_1.dayHalls
+                                                .elementAt(indexList)
+                                                .hallName ??
+                                            'Empty Data',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -323,7 +350,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        '${snapshot.data?.day_2.dayHalls.elementAt(indexList).hallName}',
+                                        snapshot.data?.day_2.dayHalls
+                                                .elementAt(indexList)
+                                                .hallName ??
+                                            'Empty Data',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -378,7 +408,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        '${snapshot.data?.day_3.dayHalls.elementAt(indexList).hallName}',
+                                        snapshot.data?.day_3.dayHalls
+                                                .elementAt(indexList)
+                                                .hallName ??
+                                            'Empty Data',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -433,7 +466,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        '${snapshot.data?.day_4.dayHalls.elementAt(indexList).hallName}',
+                                        snapshot.data?.day_4.dayHalls
+                                                .elementAt(indexList)
+                                                .hallName ??
+                                            'Empty Data',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -454,1237 +490,1217 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                           ),
                         SizedBox(height: 5.h),
                         if (day == 'day_1')
-                          SizedBox(
-                            // height: 360.h,
-                            width: double.maxFinite,
-                            child: Visibility(
-                              visible:
-                                  index <= snapshot.data!.day_1.dayHalls.length,
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 5.h),
-                                  Visibility(
-                                    visible: snapshot.data!.day_1.dayHalls
-                                        .elementAt(index)
-                                        .hallDetail
-                                        .toString()
-                                        .isNotEmpty,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                            width: 0.2, color: Colors.black12),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                          snapshot.data?.day_1.dayHalls == null &&
+                                  snapshot.data?.day_1.dayHalls
+                                          .elementAt(index)
+                                          .hallSessions ==
+                                      null
+                              ? const Text('Empty Data')
+                              : SizedBox(
+                                  // height: 360.h,
+                                  width: double.maxFinite,
+                                  child: Visibility(
+                                    visible: index <=
+                                        snapshot.data!.day_1.dayHalls.length,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 5.h),
+                                        Visibility(
+                                          visible: snapshot.data!.day_1.dayHalls
+                                              .elementAt(index)
+                                              .hallDetail
+                                              .toString()
+                                              .isNotEmpty,
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              border: Border.all(
+                                                  width: 0.2,
+                                                  color: Colors.black12),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8),
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail}\n',
-                                                    style: const TextStyle(
-                                                      color: Colors.grey,
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          style:
+                                                              const TextStyle(
+                                                            color: Colors.grey,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    // height: tabHeight,
-                                    // (snapshot.data?.day_1.dayHalls.length ??
-                                    //             0) >
-                                    //         2
-                                    //     ? MediaQuery.of(context).size.height *
-                                    //         0.4.h
-                                    //     : MediaQuery.of(context).size.height *
-                                    //         0.20.h,
-                                    child: MediaQuery.removePadding(
-                                      context: context,
-                                      removeTop: true,
-                                      child: ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          // padding:
-                                          //     const EdgeInsets.only(bottom: 20),
-                                          itemCount: snapshot
-                                              .data?.day_1.dayHalls
-                                              .elementAt(index)
-                                              .hallSessions
-                                              .length,
-                                          itemBuilder: (context, indexList2) {
-                                            return Column(
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    try {
-                                                      Navigator.of(context)
-                                                          .push(
-                                                        MaterialPageRoute(
-                                                          builder: (context) {
-                                                            return SessionDetail(
-                                                              sessions: snapshot
-                                                                  .data!
-                                                                  .day_1
-                                                                  .dayHalls
-                                                                  .elementAt(
-                                                                      index)
-                                                                  .hallSessions
-                                                                  .elementAt(
-                                                                      indexList2),
-                                                              hallIndex: index,
-                                                              sessionIndex:
-                                                                  indexList2,
-                                                              allSessionsList:
-                                                                  snapshot
-                                                                      .data!
-                                                                      .day_1
-                                                                      .dayHalls
-                                                                      .elementAt(
-                                                                          index)
-                                                                      .hallSessions,
-                                                              comingFrom: snapshot
-                                                                  .data!
-                                                                  .day_1
-                                                                  .dayHalls
-                                                                  .elementAt(
-                                                                      index)
-                                                                  .hallSessions
-                                                                  .elementAt(
-                                                                      indexList2)
-                                                                  .sessionName
-                                                                  .toString()
-                                                                  .toLowerCase(),
+                                        SizedBox(
+                                          // height: tabHeight,
+                                          // (snapshot.data?.day_1.dayHalls.length ??
+                                          //             0) >
+                                          //         2
+                                          //     ? MediaQuery.of(context).size.height *
+                                          //         0.4.h
+                                          //     : MediaQuery.of(context).size.height *
+                                          //         0.20.h,
+                                          child: MediaQuery.removePadding(
+                                            context: context,
+                                            removeTop: true,
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                physics: const ScrollPhysics(),
+                                                // padding:
+                                                //     const EdgeInsets.only(bottom: 20),
+                                                itemCount: snapshot
+                                                    .data?.day_1.dayHalls
+                                                    .elementAt(index)
+                                                    .hallSessions
+                                                    .length,
+                                                itemBuilder:
+                                                    (context, indexList2) {
+                                                  return Column(
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () {
+                                                          try {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .push(
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) {
+                                                                  return SessionDetail(
+                                                                    sessions: snapshot
+                                                                        .data!
+                                                                        .day_1
+                                                                        .dayHalls
+                                                                        .elementAt(
+                                                                            index)
+                                                                        .hallSessions
+                                                                        .elementAt(
+                                                                            indexList2),
+                                                                    hallIndex:
+                                                                        index,
+                                                                    sessionIndex:
+                                                                        indexList2,
+                                                                    allSessionsList: snapshot
+                                                                        .data!
+                                                                        .day_1
+                                                                        .dayHalls
+                                                                        .elementAt(
+                                                                            index)
+                                                                        .hallSessions,
+                                                                    comingFrom: snapshot
+                                                                        .data!
+                                                                        .day_1
+                                                                        .dayHalls
+                                                                        .elementAt(
+                                                                            index)
+                                                                        .hallSessions
+                                                                        .elementAt(
+                                                                            indexList2)
+                                                                        .sessionName
+                                                                        .toString()
+                                                                        .toLowerCase(),
+                                                                  );
+                                                                },
+                                                              ),
                                                             );
-                                                          },
-                                                        ),
-                                                      );
-                                                    } catch (e) {
-                                                      print(e);
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.82.w,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade400,
-                                                          spreadRadius: 1,
-                                                          blurRadius: 5,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    margin: const EdgeInsets
-                                                        .symmetric(vertical: 5),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          vertical: 10),
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay}${'-> '}${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall}\n',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: const Color(
-                                                                          0xff8e3434),
-                                                                      fontSize:
-                                                                          14.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
+                                                          } catch (e) {
+                                                            print(e);
+                                                          }
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.82.w,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .shade400,
+                                                                spreadRadius: 1,
+                                                                blurRadius: 5,
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
                                                           ),
-                                                          Padding(
+                                                          margin:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Padding(
                                                             padding:
                                                                 const EdgeInsets
                                                                         .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.48.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName}\n',
-                                                                    style:
-                                                                        const TextStyle(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime}\n',
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20,
                                                                     vertical:
                                                                         10),
-                                                            child: InkWell(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .push(MaterialPageRoute(
-                                                                        builder: (context) => SessionDetail(
-                                                                              sessions: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
-                                                                              hallIndex: index,
-                                                                              sessionIndex: indexList2,
-                                                                              allSessionsList: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions,
-                                                                            )));
-                                                              },
-                                                              child: InkWell(
-                                                                onTap: () {
-                                                                  Navigator.of(
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.48.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              const TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Colors.grey,
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  width: MediaQuery.of(
                                                                           context)
-                                                                      .push(MaterialPageRoute(
+                                                                      .size
+                                                                      .width,
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20,
+                                                                      vertical:
+                                                                          10),
+                                                                  child:
+                                                                      InkWell(
+                                                                    onTap: () {
+                                                                      Navigator.of(context).push(MaterialPageRoute(
                                                                           builder: (context) => SessionDetail(
                                                                                 sessions: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                                 hallIndex: index,
                                                                                 sessionIndex: indexList2,
                                                                                 allSessionsList: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions,
                                                                               )));
-                                                                },
-                                                                child: Text(
-                                                                  '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
-                                                                  maxLines: 100,
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Color(
-                                                                        0xff8e3434),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
+                                                                    },
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.of(context).push(MaterialPageRoute(
+                                                                            builder: (context) => SessionDetail(
+                                                                                  sessions: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
+                                                                                  hallIndex: index,
+                                                                                  sessionIndex: indexList2,
+                                                                                  allSessionsList: snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions,
+                                                                                )));
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
+                                                                                '') ??
+                                                                            'Empty Data',
+                                                                        maxLines:
+                                                                            100,
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Color(0xff8e3434),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
+                                                              ],
                                                             ),
                                                           ),
-                                                        ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          }),
+                                                    ],
+                                                  );
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(height: 6.h)
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 6.h)
-                                ],
-                              ),
-                            ),
-                          ),
+                                ),
                         if (day == 'day_2')
-                          SizedBox(
-                            // height: 360.h,
-                            width: double.maxFinite,
-                            child: Visibility(
-                              visible:
-                                  index <= snapshot.data!.day_2.dayHalls.length,
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 5.h),
-                                  Visibility(
-                                    visible: snapshot.data!.day_2.dayHalls
-                                        .elementAt(index)
-                                        .hallDetail
-                                        .toString()
-                                        .isNotEmpty,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                            width: 0.2, color: Colors.black12),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                          snapshot.data?.day_2.dayHalls == null &&
+                                  snapshot.data?.day_2.dayHalls
+                                          .elementAt(index)
+                                          .hallSessions ==
+                                      null
+                              ? const Text('Empty Data')
+                              : SizedBox(
+                                  // height: 360.h,
+                                  width: double.maxFinite,
+                                  child: Visibility(
+                                    visible: index <=
+                                        snapshot.data!.day_2.dayHalls.length,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 5.h),
+                                        Visibility(
+                                          visible: snapshot.data!.day_2.dayHalls
+                                              .elementAt(index)
+                                              .hallDetail
+                                              .toString()
+                                              .isNotEmpty,
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              border: Border.all(
+                                                  width: 0.2,
+                                                  color: Colors.black12),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8),
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail}\n',
-                                                    style: const TextStyle(
-                                                      color: Colors.grey,
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          style:
+                                                              const TextStyle(
+                                                            color: Colors.grey,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    // height: tabHeight,
-                                    // (snapshot.data?.day_2.dayHalls.length ??
-                                    //             0) >
-                                    //         2
-                                    //     ? MediaQuery.of(context).size.height *
-                                    //         0.4.h
-                                    //     : MediaQuery.of(context).size.height *
-                                    //         0.20.h,
-                                    child: MediaQuery.removePadding(
-                                      context: context,
-                                      removeTop: true,
-                                      child: ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          // padding:
-                                          //     const EdgeInsets.only(bottom: 20),
-                                          itemCount: snapshot
-                                              .data?.day_2.dayHalls
-                                              .elementAt(index)
-                                              .hallSessions
-                                              .length,
-                                          itemBuilder: (context, indexList2) {
-                                            return Column(
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    try {
-                                                      Navigator.of(context).push(
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  SessionDetail(
-                                                                    sessions: snapshot
-                                                                        .data!
-                                                                        .day_2
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2),
-                                                                    hallIndex:
-                                                                        index,
-                                                                    sessionIndex:
-                                                                        indexList2,
-                                                                    allSessionsList: snapshot
-                                                                        .data!
-                                                                        .day_2
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions,
-                                                                    comingFrom: snapshot
-                                                                        .data!
-                                                                        .day_2
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2)
-                                                                        .sessionName
-                                                                        .toString()
-                                                                        .toLowerCase(),
-                                                                  )));
-                                                    } catch (e) {
-                                                      print(e);
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.82.w,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade400,
-                                                          spreadRadius: 1,
-                                                          blurRadius: 5,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    margin: const EdgeInsets
-                                                        .symmetric(vertical: 5),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          vertical: 10),
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall}\n',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: const Color(
-                                                                          0xff8e3434),
-                                                                      fontSize:
-                                                                          14.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName}\n',
-                                                                    style:
-                                                                        const TextStyle(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime}\n',
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20,
-                                                                    vertical:
-                                                                        10),
-                                                            child: InkWell(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .push(MaterialPageRoute(
-                                                                        builder: (context) => SessionDetail(
-                                                                              sessions: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
+                                        SizedBox(
+                                          // height: tabHeight,
+                                          // (snapshot.data?.day_2.dayHalls.length ??
+                                          //             0) >
+                                          //         2
+                                          //     ? MediaQuery.of(context).size.height *
+                                          //         0.4.h
+                                          //     : MediaQuery.of(context).size.height *
+                                          //         0.20.h,
+                                          child: MediaQuery.removePadding(
+                                            context: context,
+                                            removeTop: true,
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                physics: const ScrollPhysics(),
+                                                // padding:
+                                                //     const EdgeInsets.only(bottom: 20),
+                                                itemCount: snapshot
+                                                    .data?.day_2.dayHalls
+                                                    .elementAt(index)
+                                                    .hallSessions
+                                                    .length,
+                                                itemBuilder:
+                                                    (context, indexList2) {
+                                                  return Column(
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () {
+                                                          try {
+                                                            Navigator.of(context).push(
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            SessionDetail(
+                                                                              sessions: snapshot.data!.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                               hallIndex: index,
                                                                               sessionIndex: indexList2,
-                                                                              allSessionsList: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions,
+                                                                              allSessionsList: snapshot.data!.day_2.dayHalls.elementAt(index).hallSessions,
+                                                                              comingFrom: snapshot.data!.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName.toString().toLowerCase(),
                                                                             )));
-                                                              },
-                                                              child: InkWell(
-                                                                onTap: () {
-                                                                  Navigator.of(
+                                                          } catch (e) {
+                                                            print(e);
+                                                          }
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.82.w,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .shade400,
+                                                                spreadRadius: 1,
+                                                                blurRadius: 5,
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                          margin:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    vertical:
+                                                                        10),
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              const TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Colors.grey,
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  width: MediaQuery.of(
                                                                           context)
-                                                                      .push(MaterialPageRoute(
+                                                                      .size
+                                                                      .width,
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20,
+                                                                      vertical:
+                                                                          10),
+                                                                  child:
+                                                                      InkWell(
+                                                                    onTap: () {
+                                                                      Navigator.of(context).push(MaterialPageRoute(
                                                                           builder: (context) => SessionDetail(
                                                                                 sessions: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                                 hallIndex: index,
                                                                                 sessionIndex: indexList2,
                                                                                 allSessionsList: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions,
                                                                               )));
-                                                                },
-                                                                child: Text(
-                                                                  '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
-                                                                  maxLines: 100,
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Color(
-                                                                        0xff8e3434),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
+                                                                    },
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.of(context).push(MaterialPageRoute(
+                                                                            builder: (context) => SessionDetail(
+                                                                                  sessions: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
+                                                                                  hallIndex: index,
+                                                                                  sessionIndex: indexList2,
+                                                                                  allSessionsList: snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions,
+                                                                                )));
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
+                                                                                '') ??
+                                                                            'Empty Data',
+                                                                        maxLines:
+                                                                            100,
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Color(0xff8e3434),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
+                                                              ],
                                                             ),
                                                           ),
-                                                        ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          }),
+                                                    ],
+                                                  );
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(height: 6.h)
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 6.h)
-                                ],
-                              ),
-                            ),
-                          ),
+                                ),
                         if (day == 'day_3')
-                          SizedBox(
-                            // height: 360.h,
-                            width: double.maxFinite,
-                            child: Visibility(
-                              visible:
-                                  index <= snapshot.data!.day_3.dayHalls.length,
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 5.h),
-                                  Visibility(
-                                    visible: snapshot.data!.day_3.dayHalls
-                                        .elementAt(index)
-                                        .hallDetail
-                                        .toString()
-                                        .isNotEmpty,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                            width: 0.2, color: Colors.black12),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                          snapshot.data?.day_3.dayHalls == null &&
+                                  snapshot.data?.day_3.dayHalls
+                                          .elementAt(index)
+                                          .hallSessions ==
+                                      null
+                              ? const Text('Empty Data')
+                              : SizedBox(
+                                  // height: 360.h,
+                                  width: double.maxFinite,
+                                  child: Visibility(
+                                    visible: index <=
+                                        snapshot.data!.day_3.dayHalls.length,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 5.h),
+                                        Visibility(
+                                          visible: snapshot.data!.day_3.dayHalls
+                                              .elementAt(index)
+                                              .hallDetail
+                                              .toString()
+                                              .isNotEmpty,
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              border: Border.all(
+                                                  width: 0.2,
+                                                  color: Colors.black12),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8),
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail}\n',
-                                                    style: const TextStyle(
-                                                      color: Colors.grey,
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          style:
+                                                              const TextStyle(
+                                                            color: Colors.grey,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    // height: tabHeight,
-                                    // (snapshot.data?.day_3.dayHalls.length ??
-                                    //             0) >
-                                    //         2
-                                    //     ? MediaQuery.of(context).size.height *
-                                    //         0.4.h
-                                    //     : MediaQuery.of(context).size.height *
-                                    //         0.20.h,
-                                    child: MediaQuery.removePadding(
-                                      context: context,
-                                      removeTop: true,
-                                      child: ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          // padding:
-                                          //     const EdgeInsets.only(bottom: 20),
-                                          itemCount: snapshot
-                                              .data?.day_3.dayHalls
-                                              .elementAt(index)
-                                              .hallSessions
-                                              .length,
-                                          itemBuilder: (context, indexList2) {
-                                            return Column(
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    try {
-                                                      Navigator.of(context).push(
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  SessionDetail(
-                                                                    sessions: snapshot
-                                                                        .data
-                                                                        ?.day_3
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2),
-                                                                    hallIndex:
-                                                                        index,
-                                                                    sessionIndex:
-                                                                        indexList2,
-                                                                    allSessionsList: snapshot
-                                                                        .data
-                                                                        ?.day_3
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions,
-                                                                    comingFrom: snapshot
-                                                                        .data
-                                                                        ?.day_3
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2)
-                                                                        .sessionName
-                                                                        .toString()
-                                                                        .toLowerCase(),
-                                                                  )));
-                                                    } catch (e) {
-                                                      print(e);
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.82.w,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade400,
-                                                          spreadRadius: 1,
-                                                          blurRadius: 5,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    margin: const EdgeInsets
-                                                        .symmetric(vertical: 5),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          vertical: 10),
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall}\n',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: const Color(
-                                                                          0xff8e3434),
-                                                                      fontSize:
-                                                                          14.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName}\n',
-                                                                    style:
-                                                                        const TextStyle(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime}\n',
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20,
-                                                                    vertical:
-                                                                        10),
-                                                            child: InkWell(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .push(MaterialPageRoute(
-                                                                        builder: (context) => SessionDetail(
+                                        SizedBox(
+                                          // height: tabHeight,
+                                          // (snapshot.data?.day_3.dayHalls.length ??
+                                          //             0) >
+                                          //         2
+                                          //     ? MediaQuery.of(context).size.height *
+                                          //         0.4.h
+                                          //     : MediaQuery.of(context).size.height *
+                                          //         0.20.h,
+                                          child: MediaQuery.removePadding(
+                                            context: context,
+                                            removeTop: true,
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                physics: const ScrollPhysics(),
+                                                // padding:
+                                                //     const EdgeInsets.only(bottom: 20),
+                                                itemCount: snapshot
+                                                    .data?.day_3.dayHalls
+                                                    .elementAt(index)
+                                                    .hallSessions
+                                                    .length,
+                                                itemBuilder:
+                                                    (context, indexList2) {
+                                                  return Column(
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () {
+                                                          try {
+                                                            Navigator.of(context).push(
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            SessionDetail(
                                                                               sessions: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                               hallIndex: index,
                                                                               sessionIndex: indexList2,
                                                                               allSessionsList: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions,
+                                                                              comingFrom: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName.toString().toLowerCase(),
                                                                             )));
-                                                              },
-                                                              child: InkWell(
-                                                                onTap: () {
-                                                                  Navigator.of(
+                                                          } catch (e) {
+                                                            print(e);
+                                                          }
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.82.w,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .shade400,
+                                                                spreadRadius: 1,
+                                                                blurRadius: 5,
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                          margin:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    vertical:
+                                                                        10),
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              const TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Colors.grey,
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  width: MediaQuery.of(
                                                                           context)
-                                                                      .push(MaterialPageRoute(
+                                                                      .size
+                                                                      .width,
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20,
+                                                                      vertical:
+                                                                          10),
+                                                                  child:
+                                                                      InkWell(
+                                                                    onTap: () {
+                                                                      Navigator.of(context).push(MaterialPageRoute(
                                                                           builder: (context) => SessionDetail(
                                                                                 sessions: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                                 hallIndex: index,
                                                                                 sessionIndex: indexList2,
                                                                                 allSessionsList: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions,
                                                                               )));
-                                                                },
-                                                                child: Text(
-                                                                  '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
-                                                                  maxLines: 100,
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Color(
-                                                                        0xff8e3434),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
+                                                                    },
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.of(context).push(MaterialPageRoute(
+                                                                            builder: (context) => SessionDetail(
+                                                                                  sessions: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
+                                                                                  hallIndex: index,
+                                                                                  sessionIndex: indexList2,
+                                                                                  allSessionsList: snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions,
+                                                                                )));
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
+                                                                                '') ??
+                                                                            'Empty Data',
+                                                                        maxLines:
+                                                                            100,
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Color(0xff8e3434),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
+                                                              ],
                                                             ),
                                                           ),
-                                                        ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          }),
+                                                    ],
+                                                  );
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(height: 6.h)
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 6.h)
-                                ],
-                              ),
-                            ),
-                          ),
+                                ),
                         if (day == 'day_4')
-                          SizedBox(
-                            // height: 360.h,
-                            width: double.maxFinite,
-                            child: Visibility(
-                              visible:
-                                  index <= snapshot.data!.day_4.dayHalls.length,
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 5.h),
-                                  Visibility(
-                                    visible: snapshot.data!.day_4.dayHalls
-                                        .elementAt(index)
-                                        .hallDetail
-                                        .toString()
-                                        .isNotEmpty,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                            width: 0.2, color: Colors.black12),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
+                          snapshot.data?.day_4.dayHalls == null &&
+                                  snapshot.data?.day_4.dayHalls
+                                          .elementAt(index)
+                                          .hallSessions ==
+                                      null
+                              ? const Text('Empty Data')
+                              : SizedBox(
+                                  // height: 360.h,
+                                  width: double.maxFinite,
+                                  child: Visibility(
+                                    visible: index <=
+                                        snapshot.data!.day_4.dayHalls.length,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 5.h),
+                                        Visibility(
+                                          visible: snapshot.data!.day_4.dayHalls
+                                              .elementAt(index)
+                                              .hallDetail
+                                              .toString()
+                                              .isNotEmpty,
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              border: Border.all(
+                                                  width: 0.2,
+                                                  color: Colors.black12),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8),
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail}\n',
-                                                    style: const TextStyle(
-                                                      color: Colors.grey,
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          style:
+                                                              const TextStyle(
+                                                            color: Colors.grey,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
-                                          ],
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    // height: tabHeight,
-                                    // (snapshot.data?.day_4.dayHalls.length ??
-                                    //             0) >
-                                    //         2
-                                    //     ? MediaQuery.of(context).size.height *
-                                    //         0.4.h
-                                    //     : MediaQuery.of(context).size.height *
-                                    //         0.20.h,
-                                    child: MediaQuery.removePadding(
-                                      context: context,
-                                      removeTop: true,
-                                      child: ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          // padding:
-                                          //     const EdgeInsets.only(bottom: 20),
-                                          itemCount: snapshot
-                                              .data?.day_4.dayHalls
-                                              .elementAt(index)
-                                              .hallSessions
-                                              .length,
-                                          itemBuilder: (context, indexList2) {
-                                            return Column(
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    try {
-                                                      Navigator.of(context).push(
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  SessionDetail(
-                                                                    sessions: snapshot
-                                                                        .data
-                                                                        ?.day_4
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2),
-                                                                    hallIndex:
-                                                                        index,
-                                                                    sessionIndex:
-                                                                        indexList2,
-                                                                    allSessionsList: snapshot
-                                                                        .data
-                                                                        ?.day_4
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions,
-                                                                    comingFrom: snapshot
-                                                                        .data
-                                                                        ?.day_4
-                                                                        .dayHalls
-                                                                        .elementAt(
-                                                                            index)
-                                                                        .hallSessions
-                                                                        .elementAt(
-                                                                            indexList2)
-                                                                        .sessionName
-                                                                        .toString()
-                                                                        .toLowerCase(),
-                                                                  )));
-                                                    } catch (e) {
-                                                      print(e);
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.82.w,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors
-                                                              .grey.shade400,
-                                                          spreadRadius: 1,
-                                                          blurRadius: 5,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8),
-                                                    ),
-                                                    margin: const EdgeInsets
-                                                        .symmetric(vertical: 5),
-                                                    child: Padding(
-                                                      padding: const EdgeInsets
-                                                              .symmetric(
-                                                          vertical: 10),
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall}\n',
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: const Color(
-                                                                          0xff8e3434),
-                                                                      fontSize:
-                                                                          14.sp,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20),
-                                                            child: Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                SizedBox(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.5.w,
-                                                                  child: Text(
-                                                                    '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName}\n',
-                                                                    style:
-                                                                        const TextStyle(
-                                                                      color: Colors
-                                                                          .black,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime}\n',
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        20,
-                                                                    vertical:
-                                                                        10),
-                                                            child: InkWell(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .push(MaterialPageRoute(
-                                                                        builder: (context) => SessionDetail(
+                                        SizedBox(
+                                          // height: tabHeight,
+                                          // (snapshot.data?.day_4.dayHalls.length ??
+                                          //             0) >
+                                          //         2
+                                          //     ? MediaQuery.of(context).size.height *
+                                          //         0.4.h
+                                          //     : MediaQuery.of(context).size.height *
+                                          //         0.20.h,
+                                          child: MediaQuery.removePadding(
+                                            context: context,
+                                            removeTop: true,
+                                            child: ListView.builder(
+                                                shrinkWrap: true,
+                                                physics: const ScrollPhysics(),
+                                                // padding:
+                                                //     const EdgeInsets.only(bottom: 20),
+                                                itemCount: snapshot
+                                                    .data?.day_4.dayHalls
+                                                    .elementAt(index)
+                                                    .hallSessions
+                                                    .length,
+                                                itemBuilder:
+                                                    (context, indexList2) {
+                                                  return Column(
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () {
+                                                          try {
+                                                            Navigator.of(context).push(
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            SessionDetail(
                                                                               sessions: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                               hallIndex: index,
                                                                               sessionIndex: indexList2,
                                                                               allSessionsList: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions,
+                                                                              comingFrom: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName.toString().toLowerCase(),
                                                                             )));
-                                                              },
-                                                              child: InkWell(
-                                                                onTap: () {
-                                                                  Navigator.of(
+                                                          } catch (e) {
+                                                            print(e);
+                                                          }
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.82.w,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: Colors
+                                                                    .grey
+                                                                    .shade400,
+                                                                spreadRadius: 1,
+                                                                blurRadius: 5,
+                                                              )
+                                                            ],
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8),
+                                                          ),
+                                                          margin:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .symmetric(
+                                                                    vertical:
+                                                                        10),
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.5.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          style:
+                                                                              const TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Colors.grey,
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  width: MediaQuery.of(
                                                                           context)
-                                                                      .push(MaterialPageRoute(
+                                                                      .size
+                                                                      .width,
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          20,
+                                                                      vertical:
+                                                                          10),
+                                                                  child:
+                                                                      InkWell(
+                                                                    onTap: () {
+                                                                      Navigator.of(context).push(MaterialPageRoute(
                                                                           builder: (context) => SessionDetail(
                                                                                 sessions: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
                                                                                 hallIndex: index,
                                                                                 sessionIndex: indexList2,
                                                                                 allSessionsList: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions,
                                                                               )));
-                                                                },
-                                                                child: Text(
-                                                                  '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
-                                                                  maxLines: 100,
-                                                                  style:
-                                                                      const TextStyle(
-                                                                    color: Color(
-                                                                        0xff8e3434),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
+                                                                    },
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.of(context).push(MaterialPageRoute(
+                                                                            builder: (context) => SessionDetail(
+                                                                                  sessions: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2),
+                                                                                  hallIndex: index,
+                                                                                  sessionIndex: indexList2,
+                                                                                  allSessionsList: snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions,
+                                                                                )));
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
+                                                                                '') ??
+                                                                            'Empty Data',
+                                                                        maxLines:
+                                                                            100,
+                                                                        style:
+                                                                            const TextStyle(
+                                                                          color:
+                                                                              Color(0xff8e3434),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                        ),
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
+                                                              ],
                                                             ),
                                                           ),
-                                                        ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            );
-                                          }),
+                                                    ],
+                                                  );
+                                                }),
+                                          ),
+                                        ),
+                                        SizedBox(height: 6.h)
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 6.h)
-                                ],
-                              ),
-                            ),
-                          ),
+                                ),
                       ],
                     ),
                   );

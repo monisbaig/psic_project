@@ -70,8 +70,8 @@ class _SessionDetailState extends State<SessionDetail> {
   }
 
   Future<List<String>> htmlParseModerator() {
-    var document = parse(widget.sessions!.sessionModerators!
-        .map((e) => e.sessionModerator!.userAvatar)
+    var document = parse(widget.sessions?.sessionModerators!
+        .map((e) => e.sessionModerator?.userAvatar)
         .toString());
     var imgList = document.querySelectorAll('img');
     List<String> imageList = [];
@@ -82,8 +82,8 @@ class _SessionDetailState extends State<SessionDetail> {
   }
 
   Future<List<String>> htmlParseFacilitator() {
-    var document = parse(widget.sessions!.sessionFacilitators!
-        .map((e) => e.sessionFacilitator!.userAvatar)
+    var document = parse(widget.sessions?.sessionFacilitators!
+        .map((e) => e.sessionFacilitator?.userAvatar)
         .toString());
     var imgList = document.querySelectorAll('img');
     List<String> imageList = [];
@@ -95,8 +95,8 @@ class _SessionDetailState extends State<SessionDetail> {
   }
 
   Future<List<String>> htmlParseChairperson() {
-    var document = parse(widget.sessions!.sessionChairpersons!
-        .map((e) => e.sessionChairperson!.userAvatar)
+    var document = parse(widget.sessions?.sessionChairpersons!
+        .map((e) => e.sessionChairperson?.userAvatar)
         .toString());
     var imgList = document.querySelectorAll('img');
     List<String> imageList = [];
@@ -167,7 +167,14 @@ class _SessionDetailState extends State<SessionDetail> {
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Center(
                       child: Text(
-                        '${widget.sessions?.sessionName.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
+                        widget.sessions?.sessionName
+                                .toString()
+                                .replaceAll('br', '')
+                                .replaceAll('br', '')
+                                .replaceAll('>', '')
+                                .replaceAll('/', '')
+                                .replaceAll('<', '') ??
+                            'Empty Data',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: const TextStyle(
@@ -281,10 +288,10 @@ class _SessionDetailState extends State<SessionDetail> {
                 color: const Color(0xff8e3434),
               ),
             ),
-            widget.sessions!.sessionModerators == null
+            widget.sessions?.sessionModerators == null
                 ? const SizedBox(child: Text('Empty Data'))
                 : SizedBox(
-                    height: (widget.sessions?.sessionModerators!.length ?? 0) *
+                    height: (widget.sessions?.sessionModerators?.length ?? 0) *
                         80.0,
                     child: FutureBuilder(
                         future: htmlParseModerator(),
@@ -319,9 +326,10 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data == null
+                                              image: snapshot.data != 5
                                                   ? const NetworkImage(
-                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g')
+                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
+                                                    )
                                                   : NetworkImage(
                                                       snapshot.data![index]),
                                             ),
@@ -340,7 +348,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                       .width *
                                                   0.55,
                                               child: Text(
-                                                '${widget.sessions?.sessionModerators!.elementAt(index).sessionModerator!.userFirstname}${' '}${widget.sessions?.sessionModerators!.elementAt(index).sessionModerator!.userLastname ?? 'Empty Data'}',
+                                                '${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userLastname ?? 'Empty Data'}',
                                                 style: const TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w500,
@@ -396,7 +404,7 @@ class _SessionDetailState extends State<SessionDetail> {
                 color: const Color(0xff8e3434),
               ),
             ),
-            widget.sessions!.sessionFacilitators == null
+            widget.sessions?.sessionFacilitators == null
                 ? const SizedBox(child: Text('Empty Data'))
                 : SizedBox(
                     height:
@@ -434,9 +442,10 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data! != 5
+                                              image: snapshot.data != 5
                                                   ? const NetworkImage(
-                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g')
+                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
+                                                    )
                                                   : NetworkImage(
                                                       snapshot.data![index]),
                                             ),
@@ -453,7 +462,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                       .width *
                                                   0.55,
                                               child: Text(
-                                                '${widget.sessions!.sessionFacilitators!.elementAt(index).sessionFacilitator!.userFirstname}${' '}${widget.sessions!.sessionFacilitators!.elementAt(index).sessionFacilitator!.userLastname ?? 'Empty Data'}',
+                                                '${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userLastname ?? 'Empty Data'}',
                                                 style: const TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w500,
@@ -509,11 +518,11 @@ class _SessionDetailState extends State<SessionDetail> {
                 color: const Color(0xff8e3434),
               ),
             ),
-            widget.sessions!.sessionChairpersons == null
+            widget.sessions?.sessionChairpersons == null
                 ? const SizedBox(child: Text('Empty Data'))
                 : SizedBox(
                     height:
-                        (widget.sessions?.sessionChairpersons!.length ?? 0) *
+                        (widget.sessions?.sessionChairpersons?.length ?? 0) *
                             80.0,
                     child: FutureBuilder(
                         future: htmlParseChairperson(),
@@ -522,7 +531,8 @@ class _SessionDetailState extends State<SessionDetail> {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount:
-                                widget.sessions?.sessionChairpersons!.length,
+                                widget.sessions?.sessionChairpersons?.length ??
+                                    0,
                             primary: false,
                             padding: const EdgeInsets.all(0),
                             itemBuilder: (context, index) {
@@ -548,9 +558,10 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data! != 5
+                                              image: snapshot.data != 5
                                                   ? const NetworkImage(
-                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g')
+                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
+                                                    )
                                                   : NetworkImage(
                                                       snapshot.data![index]),
                                             ),
@@ -567,7 +578,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                       .width *
                                                   0.55,
                                               child: Text(
-                                                '${widget.sessions?.sessionChairpersons!.elementAt(index).sessionChairperson!.userFirstname}${' '}${widget.sessions?.sessionChairpersons!.elementAt(index).sessionChairperson!.userLastname ?? 'Empty Data'}',
+                                                '${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userLastname ?? 'Empty Data'}',
                                                 style: const TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w500,
@@ -793,7 +804,8 @@ class _SessionDetailState extends State<SessionDetail> {
                                             .replaceAll('br', '')
                                             .replaceAll('>', '')
                                             .replaceAll('/', '')
-                                            .replaceAll('<', '') ??
+                                            .replaceAll('<', '')
+                                            .replaceAll('\n', '') ??
                                         'Empty Data',
                                     style: const TextStyle(
                                       color: Colors.black,
