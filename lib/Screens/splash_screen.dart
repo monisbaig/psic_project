@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:psic_project/Screens/home_sceen.dart';
 import 'package:psic_project/controller/program_controller.dart';
@@ -32,6 +34,19 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     controller.initializeDB();
     super.initState();
     initPlatformState();
+    loadTimer();
+  }
+
+  void loadTimer() {
+    Timer(const Duration(seconds: 4), () {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreenPage(),
+        ),
+        (route) => false,
+      );
+    });
   }
 
   getData() async {
@@ -112,20 +127,16 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 0),
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: Image.asset('assets/images/log.jpg'),
-              ),
+            SizedBox(
+              height: 180.h,
+              width: 180.w,
+              child: Image.asset('assets/images/log.jpg'),
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
                   'Pakistan Society of ',
@@ -145,47 +156,48 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width,
-                child: const Image(
-                  image: AssetImage('assets/images/psic_poster.png'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.3),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const HomeScreenPage(),
-                    ),
-                  );
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.08,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff8e3434),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'GET STARTED',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            SizedBox(height: 90.h),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 20),
+            //   child: SizedBox(
+            //     width: 350.w,
+            //     child: const Image(
+            //       image: AssetImage('assets/images/cover.jpg'),
+            //       fit: BoxFit.cover,
+            //     ),
+            //   ),
+            // ),
+            // Padding(
+            //   padding: EdgeInsets.only(
+            //       top: MediaQuery.of(context).size.height * 0.3),
+            //   child: InkWell(
+            //     onTap: () {
+            //       Navigator.of(context).push(
+            //         MaterialPageRoute(
+            //           builder: (context) => const HomeScreenPage(),
+            //         ),
+            //       );
+            //     },
+            //     child: Container(
+            //       height: MediaQuery.of(context).size.height * 0.08,
+            //       width: MediaQuery.of(context).size.width * 0.9,
+            //       decoration: BoxDecoration(
+            //         color: const Color(0xff8e3434),
+            //         borderRadius: BorderRadius.circular(10),
+            //       ),
+            //       child: const Center(
+            //         child: Text(
+            //           'GET STARTED',
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.w700,
+            //             fontSize: 18,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

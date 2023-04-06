@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psic_project/Screens/home_sceen.dart';
+import 'package:psic_project/Screens/splash_screen.dart';
 import 'package:psic_project/firebase_options.dart';
 
 void main() async {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreenPage(),
+        home: SplashScreenPage(),
       ),
     );
   }

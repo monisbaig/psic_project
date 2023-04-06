@@ -523,17 +523,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   color: Colors.black12),
                                             ),
                                             child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.w),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 5),
+                                                    padding: EdgeInsets.only(
+                                                        left: 5.w),
                                                     child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -656,16 +654,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     .circular(
                                                                         8),
                                                           ),
-                                                          margin:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 5),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      5.h),
                                                           child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
                                                                     vertical:
-                                                                        10),
+                                                                        10.h),
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -675,10 +672,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -689,7 +686,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
@@ -753,12 +750,11 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           context)
                                                                       .size
                                                                       .width,
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
+                                                                  padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          20,
+                                                                          20.w,
                                                                       vertical:
-                                                                          10),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -850,17 +846,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   color: Colors.black12),
                                             ),
                                             child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.w),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 5),
+                                                    padding: EdgeInsets.only(
+                                                        left: 5.w),
                                                     child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -951,16 +945,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     .circular(
                                                                         8),
                                                           ),
-                                                          margin:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 5),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      5.h),
                                                           child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
                                                                     vertical:
-                                                                        10),
+                                                                        10.h),
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -970,10 +963,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -984,7 +977,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
@@ -1048,12 +1041,11 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           context)
                                                                       .size
                                                                       .width,
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
+                                                                  padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          20,
+                                                                          20.w,
                                                                       vertical:
-                                                                          10),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -1145,17 +1137,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   color: Colors.black12),
                                             ),
                                             child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.w),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 5),
+                                                    padding: EdgeInsets.only(
+                                                        left: 5.w),
                                                     child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -1246,16 +1236,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     .circular(
                                                                         8),
                                                           ),
-                                                          margin:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 5),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      5.h),
                                                           child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
                                                                     vertical:
-                                                                        10),
+                                                                        10.h),
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -1265,10 +1254,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1279,7 +1268,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
@@ -1343,12 +1332,11 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           context)
                                                                       .size
                                                                       .width,
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
+                                                                  padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          20,
+                                                                          20.w,
                                                                       vertical:
-                                                                          10),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -1440,17 +1428,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   color: Colors.black12),
                                             ),
                                             child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 8),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.w),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 5),
+                                                    padding: EdgeInsets.only(
+                                                        left: 5.w),
                                                     child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -1541,16 +1527,15 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     .circular(
                                                                         8),
                                                           ),
-                                                          margin:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 5),
+                                                          margin: EdgeInsets
+                                                              .symmetric(
+                                                                  vertical:
+                                                                      5.h),
                                                           child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .symmetric(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
                                                                     vertical:
-                                                                        10),
+                                                                        10.h),
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -1560,10 +1545,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1574,7 +1559,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
@@ -1638,12 +1623,11 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           context)
                                                                       .size
                                                                       .width,
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
+                                                                  padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          20,
+                                                                          20.w,
                                                                       vertical:
-                                                                          10),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {

@@ -41,18 +41,6 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   ProgramController controller = ProgramController();
   SessionByDayController sessionByDayController = SessionByDayController();
 
-  @override
-  void initState() {
-    super.initState();
-
-    controller.initializeDB();
-    initPlatformState();
-    OneSignal.shared.setLogLevel(OSLogLevel.debug, OSLogLevel.none);
-    OneSignal.shared.setAppId('dffe675c-baa4-4899-a34c-ad22111c1eb2');
-    getData();
-    SessionByDayController().getDataSplash();
-  }
-
   getData() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
@@ -122,6 +110,22 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void didChangeDependencies() async {
+    await getData();
+    await SessionByDayController().getDataSplash();
+    super.didChangeDependencies();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller.initializeDB();
+    initPlatformState();
+    OneSignal.shared.setLogLevel(OSLogLevel.debug, OSLogLevel.none);
+    OneSignal.shared.setAppId('dffe675c-baa4-4899-a34c-ad22111c1eb2');
+  }
 
   @override
   Widget build(BuildContext context) {
