@@ -258,9 +258,9 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                         SizedBox(height: 10.h),
                         if (day == 'day_1')
                           Container(
-                            height: snapshot.data!.day_1.dayHalls.length <= 3
-                                ? 55
-                                : 100,
+                            // height: snapshot.data!.day_1.dayHalls.length <= 3
+                            //     ? 55
+                            //     : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -268,6 +268,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: snapshot.data!.day_1.dayHalls.length,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
@@ -316,9 +318,6 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                           ),
                         if (day == 'day_2')
                           Container(
-                            height: snapshot.data!.day_2.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -326,6 +325,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
                               itemCount: snapshot.data!.day_2.dayHalls.length,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
@@ -374,9 +375,6 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                           ),
                         if (day == 'day_3')
                           Container(
-                            height: snapshot.data!.day_3.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -384,6 +382,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: snapshot.data!.day_3.dayHalls.length,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
@@ -432,9 +432,6 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                           ),
                         if (day == 'day_4')
                           Container(
-                            height: snapshot.data!.day_4.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -442,6 +439,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: snapshot.data!.day_4.dayHalls.length,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
@@ -709,10 +708,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1004,10 +1003,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1018,7 +1017,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
@@ -1299,10 +1298,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1313,7 +1312,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
@@ -1594,10 +1593,10 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1608,7 +1607,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                     children: [
                                                                       SizedBox(
                                                                         width: MediaQuery.of(context).size.width *
-                                                                            0.5.w,
+                                                                            0.48.w,
                                                                         child:
                                                                             Text(
                                                                           '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',

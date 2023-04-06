@@ -249,7 +249,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 // width: MediaQuery.of(context).size.width,
                 GridView.count(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 13,
+                  crossAxisSpacing: 8,
                   padding: EdgeInsets.only(bottom: 10.h),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -474,14 +474,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   )
                 ]),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/sessions by day icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -518,14 +517,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/my program icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -564,14 +562,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   )
                 ]),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/sessions by type icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -606,14 +603,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       blurRadius: 5)
                 ]),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/whats happening icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -650,14 +646,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/case corner icon.svg',
-                    width: 22.w,
-                    height: 22.h,
+                    width: 25.w,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -695,14 +690,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       blurRadius: 5)
                 ]),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/fellow course icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -736,14 +730,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset(
                     'assets/SVG/learning session icon.svg',
                     width: 25.w,
-                    height: 25.h,
                     color: const Color(0xff8e3434),
                   ),
                   Text(
@@ -779,7 +772,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.all(14.sp),
+              padding: EdgeInsets.all(12.sp),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

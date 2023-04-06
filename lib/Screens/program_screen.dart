@@ -257,9 +257,6 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                         SizedBox(height: 10.h),
                         if (day == 'day_1')
                           Container(
-                            height: snapshot.data!.day_1.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -267,6 +264,8 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount:
                                   snapshot.data?.day_1.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
@@ -316,9 +315,6 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                           ),
                         if (day == 'day_2')
                           Container(
-                            height: snapshot.data!.day_2.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -326,6 +322,8 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount:
                                   snapshot.data?.day_2.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
@@ -375,9 +373,6 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                           ),
                         if (day == 'day_3')
                           Container(
-                            height: snapshot.data!.day_3.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -385,6 +380,8 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount:
                                   snapshot.data?.day_3.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
@@ -434,9 +431,6 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                           ),
                         if (day == 'day_4')
                           Container(
-                            height: snapshot.data!.day_4.dayHalls.length <= 3
-                                ? 55
-                                : 100,
                             padding: const EdgeInsets.all(1),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -444,6 +438,8 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               border: Border.all(width: 0.05),
                             ),
                             child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount:
                                   snapshot.data?.day_4.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
