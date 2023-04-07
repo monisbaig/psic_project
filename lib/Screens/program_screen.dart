@@ -150,7 +150,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_1'
                                                   ? Colors.white
@@ -180,7 +180,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_2'
                                                   ? Colors.white
@@ -210,7 +210,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_3'
                                                   ? Colors.white
@@ -240,7 +240,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_4'
                                                   ? Colors.white
@@ -294,7 +294,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                         snapshot.data?.day_1.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -352,7 +352,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                         snapshot.data?.day_2.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -410,7 +410,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                         snapshot.data?.day_3.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -468,7 +468,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                         snapshot.data?.day_4.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -534,7 +534,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .dayHalls
                                                             .elementAt(index)
                                                             .hallDetail ??
-                                                        'Empty Data',
+                                                        '',
                                                     style: const TextStyle(
                                                       color: Colors.grey,
                                                       fontSize: 12,
@@ -665,7 +665,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           child:
                                                                               Text(
                                                                             snapshot.data?.day_1.dayHalls.elementAt(index).hallName ??
-                                                                                'Empty Data',
+                                                                                '',
                                                                             // '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTimeSlots.elementAt(index).title.toString().toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '')}',
                                                                             style:
                                                                                 const TextStyle(
@@ -676,7 +676,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                         ),
                                                                         Text(
                                                                           mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                              'Empty Data',
+                                                                              '',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -702,7 +702,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                                 MediaQuery.of(context).size.width * 0.8,
                                                                             child:
                                                                                 Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? 'Empty Data',
+                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
                                                                               style: const TextStyle(
                                                                                 color: Color(0xff8e3434),
                                                                                 fontWeight: FontWeight.w700,
@@ -832,7 +832,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .dayHalls
                                                             .elementAt(index)
                                                             .hallDetail ??
-                                                        'Empty Data',
+                                                        '',
                                                     style: const TextStyle(
                                                       color: Colors.grey,
                                                       fontSize: 12,
@@ -958,7 +958,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           child:
                                                                               Text(
                                                                             snapshot.data?.day_2.dayHalls.elementAt(index).hallName ??
-                                                                                'Empty Data',
+                                                                                '',
                                                                             style:
                                                                                 const TextStyle(
                                                                               color: Colors.black,
@@ -968,7 +968,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                         ),
                                                                         Text(
                                                                           mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                              'Empty Data',
+                                                                              '',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -994,7 +994,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                                 MediaQuery.of(context).size.width * 0.8,
                                                                             child:
                                                                                 Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? 'Empty Data',
+                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
                                                                               style: const TextStyle(
                                                                                 color: Color(0xff8e3434),
                                                                                 fontWeight: FontWeight.w700,
@@ -1124,7 +1124,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .dayHalls
                                                             .elementAt(index)
                                                             .hallDetail ??
-                                                        'Empty Data',
+                                                        '',
                                                     style: const TextStyle(
                                                       color: Colors.grey,
                                                       fontSize: 12,
@@ -1250,7 +1250,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           child:
                                                                               Text(
                                                                             snapshot.data?.day_3.dayHalls.elementAt(index).hallName ??
-                                                                                'Empty Data',
+                                                                                '',
                                                                             style:
                                                                                 const TextStyle(
                                                                               color: Colors.black,
@@ -1260,7 +1260,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                         ),
                                                                         Text(
                                                                           mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                              'Empty Data',
+                                                                              '',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -1286,7 +1286,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                                 MediaQuery.of(context).size.width * 0.8,
                                                                             child:
                                                                                 Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? 'Empty Data',
+                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
                                                                               style: const TextStyle(
                                                                                 color: Color(0xff8e3434),
                                                                                 fontWeight: FontWeight.w700,
@@ -1416,7 +1416,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .dayHalls
                                                             .elementAt(index)
                                                             .hallDetail ??
-                                                        'Empty Data',
+                                                        '',
                                                     style: const TextStyle(
                                                       color: Colors.grey,
                                                       fontSize: 12,
@@ -1542,7 +1542,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           child:
                                                                               Text(
                                                                             snapshot.data?.day_4.dayHalls.elementAt(index).hallName ??
-                                                                                'Empty Data',
+                                                                                '',
                                                                             style:
                                                                                 const TextStyle(
                                                                               color: Colors.black,
@@ -1552,7 +1552,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                         ),
                                                                         Text(
                                                                           mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                              'Empty Data',
+                                                                              '',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -1578,7 +1578,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                                 MediaQuery.of(context).size.width * 0.8,
                                                                             child:
                                                                                 Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? 'Empty Data',
+                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
                                                                               style: const TextStyle(
                                                                                 color: Color(0xff8e3434),
                                                                                 fontWeight: FontWeight.w700,

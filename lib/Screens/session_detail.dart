@@ -174,7 +174,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                 .replaceAll('>', '')
                                 .replaceAll('/', '')
                                 .replaceAll('<', '') ??
-                            'Empty Data',
+                            '',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: const TextStyle(
@@ -218,7 +218,7 @@ class _SessionDetailState extends State<SessionDetail> {
                         color: Color(0xff8e3434),
                       ),
                       Text(
-                        ' ${widget.sessions?.sessionTime}',
+                        widget.sessions?.sessionTime ?? '',
                         style: const TextStyle(
                           color: Color(0xff8e3434),
                           fontSize: 17,
@@ -239,7 +239,7 @@ class _SessionDetailState extends State<SessionDetail> {
                       ),
                       Flexible(
                         child: Text(
-                          ' ${widget.sessions?.sessionDetail.toString().replaceAll('<br />', '').replaceAll('\n', '') ?? 'Empty Data'}',
+                          ' ${widget.sessions?.sessionDetail.toString().replaceAll('<br />', '').replaceAll('\n', '') ?? ''}',
                           style: const TextStyle(
                             color: Color(0xff8e3434),
                             fontSize: 17,
@@ -253,7 +253,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-              visible: widget.sessions?.sessionModerators != false,
+              visible: widget.sessions?.sessionModerators != null,
               child: Container(
                 height: 2,
                 width: MediaQuery.of(context).size.width,
@@ -261,7 +261,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-              // visible: Length1 != 0,
+              visible: widget.sessions?.sessionModerators != null,
               child: Container(
                 color: Colors.grey.shade400,
                 padding:
@@ -281,7 +281,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-              visible: widget.sessions?.sessionModerators != false,
+              visible: widget.sessions?.sessionModerators != null,
               child: Container(
                 height: 2,
                 width: MediaQuery.of(context).size.width,
@@ -289,7 +289,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             widget.sessions?.sessionModerators == null
-                ? const SizedBox(child: Text('Empty Data'))
+                ? const SizedBox()
                 : SizedBox(
                     height: (widget.sessions?.sessionModerators?.length ?? 0) *
                         80.0,
@@ -300,123 +300,7 @@ class _SessionDetailState extends State<SessionDetail> {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount:
-                                widget.sessions?.sessionModerators!.length,
-                            primary: false,
-                            padding: const EdgeInsets.all(0),
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  index != 0
-                                      ? Container(
-                                          height: 2,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          color: const Color(0xff8e3434),
-                                        )
-                                      : Container(),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 10),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 60,
-                                          height: 60,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            image: DecorationImage(
-                                              image: snapshot.data != 5
-                                                  ? const NetworkImage(
-                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
-                                                    )
-                                                  : NetworkImage(
-                                                      snapshot.data![index]),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.55,
-                                              child: Text(
-                                                '${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userLastname ?? 'Empty Data'}',
-                                                style: const TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        }),
-                  ),
-            const SizedBox(height: 10),
-            Visibility(
-              visible: widget.sessions?.sessionFacilitators != false,
-              child: Container(
-                height: 2,
-                width: MediaQuery.of(context).size.width,
-                color: const Color(0xff8e3434),
-              ),
-            ),
-            Visibility(
-              // visible: Length2 != 0,
-              child: Container(
-                color: Colors.grey.shade400,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                child: Row(
-                  children: const [
-                    Text(
-                      'FACILITATORS(S):',
-                      style: TextStyle(
-                        color: Color(0xff8e3434),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Visibility(
-              visible: widget.sessions?.sessionFacilitators != false,
-              child: Container(
-                height: 2,
-                width: MediaQuery.of(context).size.width,
-                color: const Color(0xff8e3434),
-              ),
-            ),
-            widget.sessions?.sessionFacilitators == null
-                ? const SizedBox(child: Text('Empty Data'))
-                : SizedBox(
-                    height:
-                        (widget.sessions!.sessionFacilitators!.length) * 80.0,
-                    child: FutureBuilder(
-                        future: htmlParseFacilitator(),
-                        builder:
-                            (context, AsyncSnapshot<List<String>> snapshot) {
-                          return ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount:
-                                widget.sessions!.sessionFacilitators!.length,
+                                widget.sessions?.sessionModerators!.length ?? 0,
                             primary: false,
                             padding: const EdgeInsets.all(0),
                             itemBuilder: (context, index) {
@@ -462,7 +346,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                       .width *
                                                   0.55,
                                               child: Text(
-                                                '${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userLastname ?? 'Empty Data'}',
+                                                '${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userFirstname ?? ''}${' '}${widget.sessions?.sessionModerators?.elementAt(index).sessionModerator?.userLastname ?? ''}',
                                                 style: const TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w500,
@@ -483,7 +367,7 @@ class _SessionDetailState extends State<SessionDetail> {
                   ),
             const SizedBox(height: 10),
             Visibility(
-              visible: widget.sessions?.sessionChairpersons != false,
+              visible: widget.sessions?.sessionFacilitators != null,
               child: Container(
                 height: 2,
                 width: MediaQuery.of(context).size.width,
@@ -491,7 +375,122 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-              // visible: Length3 != 0,
+              visible: widget.sessions?.sessionFacilitators != null,
+              child: Container(
+                color: Colors.grey.shade400,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                child: Row(
+                  children: const [
+                    Text(
+                      'FACILITATORS(S):',
+                      style: TextStyle(
+                        color: Color(0xff8e3434),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Visibility(
+              visible: widget.sessions?.sessionFacilitators != null,
+              child: Container(
+                height: 2,
+                width: MediaQuery.of(context).size.width,
+                color: const Color(0xff8e3434),
+              ),
+            ),
+            widget.sessions?.sessionFacilitators == null
+                ? const SizedBox()
+                : SizedBox(
+                    height:
+                        (widget.sessions!.sessionFacilitators!.length) * 80.0,
+                    child: FutureBuilder(
+                        future: htmlParseFacilitator(),
+                        builder:
+                            (context, AsyncSnapshot<List<String>> snapshot) {
+                          return ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount:
+                                widget.sessions?.sessionFacilitators?.length ??
+                                    0,
+                            primary: false,
+                            padding: const EdgeInsets.all(0),
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  index != 0
+                                      ? Container(
+                                          height: 2,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          color: const Color(0xff8e3434),
+                                        )
+                                      : Container(),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 60,
+                                          height: 60,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              image: snapshot.data != 5
+                                                  ? const NetworkImage(
+                                                      'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
+                                                    )
+                                                  : NetworkImage(
+                                                      snapshot.data![index]),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 10),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.55,
+                                              child: Text(
+                                                '${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userFirstname ?? ''}${' '}${widget.sessions?.sessionFacilitators?.elementAt(index).sessionFacilitator?.userLastname ?? ''}',
+                                                style: const TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 18,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }),
+                  ),
+            const SizedBox(height: 10),
+            Visibility(
+              visible: widget.sessions?.sessionChairpersons != null,
+              child: Container(
+                height: 2,
+                width: MediaQuery.of(context).size.width,
+                color: const Color(0xff8e3434),
+              ),
+            ),
+            Visibility(
+              visible: widget.sessions?.sessionChairpersons != null,
               child: Container(
                 color: Colors.grey.shade400,
                 padding:
@@ -511,7 +510,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-              visible: widget.sessions?.sessionChairpersons != false,
+              visible: widget.sessions?.sessionChairpersons != null,
               child: Container(
                 height: 2,
                 width: MediaQuery.of(context).size.width,
@@ -519,7 +518,7 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             widget.sessions?.sessionChairpersons == null
-                ? const SizedBox(child: Text('Empty Data'))
+                ? const SizedBox()
                 : SizedBox(
                     height:
                         (widget.sessions?.sessionChairpersons?.length ?? 0) *
@@ -578,7 +577,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                       .width *
                                                   0.55,
                                               child: Text(
-                                                '${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userFirstname ?? 'Empty Data'}${' '}${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userLastname ?? 'Empty Data'}',
+                                                '${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userFirstname ?? ''}${' '}${widget.sessions?.sessionChairpersons?.elementAt(index).sessionChairperson?.userLastname ?? ''}',
                                                 style: const TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w500,
@@ -599,7 +598,7 @@ class _SessionDetailState extends State<SessionDetail> {
                   ),
             const SizedBox(height: 10),
             Visibility(
-              visible: widget.sessions?.sessionTimeSlots != false,
+              visible: widget.sessions?.sessionTimeSlots != null,
               child: Container(
                 height: 2,
                 width: MediaQuery.of(context).size.width,
@@ -607,61 +606,38 @@ class _SessionDetailState extends State<SessionDetail> {
               ),
             ),
             Visibility(
-                // visible: Length4 != 0,
+                visible: widget.sessions?.sessionTimeSlots != null,
                 child: Container(
-              color: Colors.grey.shade400,
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-              child: Row(
-                children: const [
-                  Text(
-                    'TALKS/EVENTS:',
-                    style: TextStyle(
-                      color: Color(0xff8e3434),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  color: Colors.grey.shade400,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                  child: Row(
+                    children: const [
+                      Text(
+                        'TALKS/EVENTS:',
+                        style: TextStyle(
+                          color: Color(0xff8e3434),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )),
+                )),
             Container(
               height: 2,
               width: MediaQuery.of(context).size.width,
               color: const Color(0xff8e3434),
             ),
-            widget.sessions!.sessionTimeSlots == null
-                ? const SizedBox(child: Text('Empty Data'))
+            widget.sessions?.sessionTimeSlots == null
+                ? const SizedBox()
                 : SizedBox(
-                    // height: widget.comingFrom != null
-                    //     ? (widget.comingFrom.contains("Fellow’s course")
-                    //         ? ((widget.sessions?.sessionTimeSlots!.length ??
-                    //                     0) *
-                    //                 320) +
-                    //             120
-                    //         : ((widget.sessions?.sessionTimeSlots!.length ??
-                    //                     0) *
-                    //                 110) +
-                    //             120)
-                    //     : (widget
-                    //                 .sessions!.sessionName
-                    //                 .toString()
-                    //                 .toLowerCase()
-                    //                 .trim() ==
-                    //             "Fellow’s course"
-                    //         ? ((widget.sessions?.sessionTimeSlots!.length ??
-                    //                     0) *
-                    //                 320) +
-                    //             120
-                    //         : ((widget.sessions?.sessionTimeSlots!.length ??
-                    //                     0) *
-                    //                 110) +
-                    //             120),
                     child: ListView.builder(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       physics: const NeverScrollableScrollPhysics(),
                       primary: false,
                       shrinkWrap: true,
-                      itemCount: widget.sessions?.sessionTimeSlots!.length,
+                      itemCount: widget.sessions?.sessionTimeSlots?.length ?? 0,
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
@@ -680,7 +656,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                     widget.sessions?.sessionTimeSlots!
                                             .elementAt(index)
                                             .time ??
-                                        DateTime.now().toString(),
+                                        '',
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
@@ -702,7 +678,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                               .replaceAll('>', '')
                                               .replaceAll('/', '')
                                               .replaceAll('<', '') ??
-                                          'Empty Data',
+                                          '',
                                       id: random.nextInt(100),
                                       description: widget
                                               .sessions?.sessionDetail!
@@ -713,7 +689,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                               .replaceAll('>', '')
                                               .replaceAll('/', '')
                                               .replaceAll('<', '') ??
-                                          'Empty Data',
+                                          '',
                                       caseName: widget
                                               .sessions?.sessionTimeSlots!
                                               .elementAt(index)
@@ -724,12 +700,12 @@ class _SessionDetailState extends State<SessionDetail> {
                                               .replaceAll('>', '')
                                               .replaceAll('/', '')
                                               .replaceAll('<', '') ??
-                                          'Empty Data',
+                                          '',
                                       caseTime: widget
                                               .sessions!.sessionTimeSlots!
                                               .elementAt(index)
                                               .time ??
-                                          DateTime.now().toString(),
+                                          '',
                                     );
                                     controller.createItem(session);
                                     showTopSnackBar(
@@ -753,7 +729,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                                 .replaceAll('>', '')
                                                 .replaceAll('/', '')
                                                 .replaceAll('<', '') ??
-                                            'Empty Data',
+                                            '',
                                         description: widget
                                                 .sessions?.sessionTimeSlots!
                                                 .elementAt(index)
@@ -764,13 +740,13 @@ class _SessionDetailState extends State<SessionDetail> {
                                                 .replaceAll('>', '')
                                                 .replaceAll('/', '')
                                                 .replaceAll('<', '') ??
-                                            'Empty Data',
+                                            '',
                                         time: widget.sessions!.sessionTimeSlots!
                                                 .elementAt(index)
                                                 .time ??
-                                            DateTime.now().toString(),
-                                        date: widget.sessions!.sessionDate ??
-                                            DateTime.now().toString());
+                                            '',
+                                        date:
+                                            widget.sessions!.sessionDate ?? '');
                                   },
                                   child: Row(
                                     children: const [
@@ -806,7 +782,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                             .replaceAll('/', '')
                                             .replaceAll('<', '')
                                             .replaceAll('\n', '') ??
-                                        'Empty Data',
+                                        '',
                                     style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w600,
@@ -822,11 +798,11 @@ class _SessionDetailState extends State<SessionDetail> {
                               children: [
                                 Flexible(
                                   child: Text(
-                                    widget.sessions!.sessionTimeSlots!
+                                    widget.sessions?.sessionTimeSlots!
                                                 .elementAt(index)
                                                 .facilitatorsSpeakers ==
                                             null
-                                        ? 'Empty Data'
+                                        ? ''
                                         : widget.sessions!.sessionTimeSlots!
                                             .elementAt(index)
                                             .facilitatorsSpeakers!

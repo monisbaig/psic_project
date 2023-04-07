@@ -151,7 +151,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_1'
                                                   ? Colors.white
@@ -181,7 +181,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_2'
                                                   ? Colors.white
@@ -211,7 +211,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_3'
                                                   ? Colors.white
@@ -241,7 +241,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                   .toList()
                                                   .elementAt(1)
                                                   .toString() ??
-                                              'Empty Data',
+                                              '',
                                           style: TextStyle(
                                               color: day == 'day_4'
                                                   ? Colors.white
@@ -270,7 +270,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                             child: GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data!.day_1.dayHalls.length,
+                              itemCount:
+                                  snapshot.data?.day_1.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
                                   onTap: () {
@@ -297,7 +298,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                         snapshot.data?.day_1.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -327,7 +328,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                             child: GridView.builder(
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
-                              itemCount: snapshot.data!.day_2.dayHalls.length,
+                              itemCount:
+                                  snapshot.data?.day_2.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
                                   onTap: () {
@@ -354,7 +356,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                         snapshot.data?.day_2.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -384,7 +386,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                             child: GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data!.day_3.dayHalls.length,
+                              itemCount:
+                                  snapshot.data?.day_3.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
                                   onTap: () {
@@ -411,7 +414,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                         snapshot.data?.day_3.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -441,7 +444,8 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                             child: GridView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data!.day_4.dayHalls.length,
+                              itemCount:
+                                  snapshot.data?.day_4.dayHalls.length ?? 0,
                               itemBuilder: (context, indexList) {
                                 return InkWell(
                                   onTap: () {
@@ -468,7 +472,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                         snapshot.data?.day_4.dayHalls
                                                 .elementAt(indexList)
                                                 .hallName ??
-                                            'Empty Data',
+                                            '',
                                         style: TextStyle(
                                           color: index != indexList
                                               ? Colors.black
@@ -494,7 +498,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                           .elementAt(index)
                                           .hallSessions ==
                                       null
-                              ? const Text('Empty Data')
+                              ? const SizedBox()
                               : SizedBox(
                                   // height: 360.h,
                                   width: double.maxFinite,
@@ -541,7 +545,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
                                                             color: Colors.grey,
@@ -689,7 +693,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -722,7 +726,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? ''}\n',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -733,7 +737,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                         ),
                                                                       ),
                                                                       Text(
-                                                                        '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        '${snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? ''}\n',
                                                                         style:
                                                                             const TextStyle(
                                                                           color:
@@ -782,7 +786,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           Text(
                                                                         snapshot.data?.day_1.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
-                                                                            'Empty Data',
+                                                                            '',
                                                                         maxLines:
                                                                             100,
                                                                         style:
@@ -817,7 +821,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                           .elementAt(index)
                                           .hallSessions ==
                                       null
-                              ? const Text('Empty Data')
+                              ? const SizedBox()
                               : SizedBox(
                                   // height: 360.h,
                                   width: double.maxFinite,
@@ -864,7 +868,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
                                                             color: Colors.grey,
@@ -980,7 +984,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -1013,7 +1017,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? ''}\n',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -1024,7 +1028,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                         ),
                                                                       ),
                                                                       Text(
-                                                                        '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? ''}\n',
                                                                         style:
                                                                             const TextStyle(
                                                                           color:
@@ -1073,7 +1077,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           Text(
                                                                         snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
-                                                                            'Empty Data',
+                                                                            '',
                                                                         maxLines:
                                                                             100,
                                                                         style:
@@ -1108,7 +1112,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                           .elementAt(index)
                                           .hallSessions ==
                                       null
-                              ? const Text('Empty Data')
+                              ? const SizedBox()
                               : SizedBox(
                                   // height: 360.h,
                                   width: double.maxFinite,
@@ -1155,7 +1159,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
                                                             color: Colors.grey,
@@ -1271,7 +1275,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -1304,7 +1308,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? ''}\n',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -1315,7 +1319,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                         ),
                                                                       ),
                                                                       Text(
-                                                                        '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? ''}\n',
                                                                         style:
                                                                             const TextStyle(
                                                                           color:
@@ -1364,7 +1368,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           Text(
                                                                         snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
-                                                                            'Empty Data',
+                                                                            '',
                                                                         maxLines:
                                                                             100,
                                                                         style:
@@ -1399,7 +1403,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                           .elementAt(index)
                                           .hallSessions ==
                                       null
-                              ? const Text('Empty Data')
+                              ? const SizedBox()
                               : SizedBox(
                                   // height: 360.h,
                                   width: double.maxFinite,
@@ -1446,7 +1450,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail ?? 'Empty Data'}\n',
+                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
                                                             color: Colors.grey,
@@ -1562,7 +1566,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? 'Empty Data'}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -1595,7 +1599,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                             0.48.w,
                                                                         child:
                                                                             Text(
-                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? 'Empty Data'}\n',
+                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionName ?? ''}\n',
                                                                           style:
                                                                               const TextStyle(
                                                                             color:
@@ -1606,7 +1610,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                         ),
                                                                       ),
                                                                       Text(
-                                                                        '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? 'Empty Data'}\n',
+                                                                        '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionTime ?? ''}\n',
                                                                         style:
                                                                             const TextStyle(
                                                                           color:
@@ -1655,7 +1659,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                           Text(
                                                                         snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
-                                                                            'Empty Data',
+                                                                            '',
                                                                         maxLines:
                                                                             100,
                                                                         style:
