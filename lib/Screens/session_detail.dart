@@ -8,6 +8,7 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:intl/intl.dart';
 import 'package:psic_project/Model/data_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -138,6 +139,9 @@ class _SessionDetailState extends State<SessionDetail> {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 1), curve: Curves.linear);
   }
+
+  dynamic setProgram;
+  String? addProgram;
 
   @override
   Widget build(BuildContext context) {
@@ -664,7 +668,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {
+                                  onTap: () async {
                                     ProgramController controller =
                                         ProgramController();
                                     controller.initializeDB();
@@ -720,6 +724,21 @@ class _SessionDetailState extends State<SessionDetail> {
                                         message: "Added to your program",
                                       ),
                                     );
+                                    SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    prefs.setBool('setProgram', true);
+                                    setProgram = prefs.getBool('setProgram');
+
+                                    if (setProgram == false) {
+                                      setState(() {
+                                        addProgram = "Add to your program";
+                                      });
+                                    } else {
+                                      setState(() {
+                                        addProgram = "Added to your program";
+                                      });
+                                    }
+
                                     showNotification(
                                         title: widget.sessions?.sessionName!
                                                 .toLowerCase()
@@ -749,14 +768,14 @@ class _SessionDetailState extends State<SessionDetail> {
                                             widget.sessions!.sessionDate ?? '');
                                   },
                                   child: Row(
-                                    children: const [
-                                      Icon(
+                                    children: [
+                                      const Icon(
                                         Icons.add,
                                         color: Color(0xff8e3434),
                                       ),
                                       Text(
-                                        'Add to my program',
-                                        style: TextStyle(
+                                        addProgram ?? 'Add to your program',
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff8e3434)),
                                       )

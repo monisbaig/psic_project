@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psic_project/Model/data_model.dart';
 import 'package:psic_project/controller/program_controller.dart';
 import 'package:psic_project/controller/session_by_day_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/custom_navigation_bar.dart';
 
@@ -536,7 +537,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .hallDetail ??
                                                         '',
                                                     style: const TextStyle(
-                                                      color: Colors.grey,
+                                                      color: Colors.black,
                                                       fontSize: 12,
                                                     ),
                                                   ),
@@ -729,15 +730,22 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                       children: [
                                                                         InkWell(
                                                                           onTap:
-                                                                              () {
+                                                                              () async {
                                                                             SqliteService
                                                                                 service =
                                                                                 SqliteService();
                                                                             service.deleteItem(mysavedData.data?.elementAt(indexList2).caseName.toString().toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 ''));
+
                                                                             setState(() {
                                                                               initialIndex = 0;
                                                                             });
+
+                                                                            SharedPreferences
+                                                                                prefs =
+                                                                                await SharedPreferences.getInstance();
+                                                                            prefs.setBool('setProgram',
+                                                                                false);
                                                                           },
                                                                           child:
                                                                               Container(
@@ -834,7 +842,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .hallDetail ??
                                                         '',
                                                     style: const TextStyle(
-                                                      color: Colors.grey,
+                                                      color: Colors.black,
                                                       fontSize: 12,
                                                     ),
                                                   ),
@@ -1126,7 +1134,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .hallDetail ??
                                                         '',
                                                     style: const TextStyle(
-                                                      color: Colors.grey,
+                                                      color: Colors.black,
                                                       fontSize: 12,
                                                     ),
                                                   ),
@@ -1418,7 +1426,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                             .hallDetail ??
                                                         '',
                                                     style: const TextStyle(
-                                                      color: Colors.grey,
+                                                      color: Colors.black,
                                                       fontSize: 12,
                                                     ),
                                                   ),
