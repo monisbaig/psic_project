@@ -546,10 +546,12 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                       children: [
                                                         Text(
                                                           '${snapshot.data?.day_1.dayHalls.elementAt(index).hallDetail ?? ''}\n',
-                                                          style:
-                                                              const TextStyle(
-                                                            color: Colors.black,
-                                                          ),
+                                                          style: const TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
                                                         ),
                                                       ],
                                                     ),
@@ -675,6 +677,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   CrossAxisAlignment
                                                                       .start,
                                                               children: [
+                                                                /// Fahad changes
                                                                 // Padding(
                                                                 //   padding: EdgeInsets
                                                                 //       .symmetric(
@@ -712,7 +715,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   padding: EdgeInsets
                                                                       .symmetric(
                                                                           horizontal:
-                                                                              15.w),
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -756,9 +759,9 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .width,
                                                                   padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          15.w,
+                                                                          20.w,
                                                                       vertical:
-                                                                          8.h),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -810,6 +813,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 }),
                                           ),
                                         ),
+                                        SizedBox(height: 6.h)
                                       ],
                                     ),
                                   ),
@@ -870,7 +874,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                           '${snapshot.data?.day_2.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
-                                                            color: Colors.black,
+                                                            color: Colors.grey,
                                                           ),
                                                         ),
                                                       ],
@@ -965,44 +969,44 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   CrossAxisAlignment
                                                                       .start,
                                                               children: [
-                                                                // Padding(
-                                                                //   padding: EdgeInsets
-                                                                //       .symmetric(
-                                                                //           horizontal:
-                                                                //               20.w),
-                                                                //   child: Row(
-                                                                //     crossAxisAlignment:
-                                                                //         CrossAxisAlignment
-                                                                //             .start,
-                                                                //     mainAxisAlignment:
-                                                                //         MainAxisAlignment
-                                                                //             .spaceBetween,
-                                                                //     children: [
-                                                                //       SizedBox(
-                                                                //         width: MediaQuery.of(context).size.width *
-                                                                //             0.48.w,
-                                                                //         child:
-                                                                //             Text(
-                                                                //           '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
-                                                                //           style:
-                                                                //               TextStyle(
-                                                                //             color:
-                                                                //                 const Color(0xff8e3434),
-                                                                //             fontSize:
-                                                                //                 14.sp,
-                                                                //             fontWeight:
-                                                                //                 FontWeight.w700,
-                                                                //           ),
-                                                                //         ),
-                                                                //       ),
-                                                                //     ],
-                                                                //   ),
-                                                                // ),
                                                                 Padding(
                                                                   padding: EdgeInsets
                                                                       .symmetric(
                                                                           horizontal:
-                                                                              15.w),
+                                                                              20.w),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.48.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_2.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1046,9 +1050,9 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .width,
                                                                   padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          15.w,
+                                                                          20.w,
                                                                       vertical:
-                                                                          8.h),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -1100,6 +1104,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 }),
                                           ),
                                         ),
+                                        SizedBox(height: 6.h)
                                       ],
                                     ),
                                   ),
@@ -1160,7 +1165,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                           '${snapshot.data?.day_3.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
-                                                            color: Colors.black,
+                                                            color: Colors.grey,
                                                           ),
                                                         ),
                                                       ],
@@ -1255,44 +1260,44 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   CrossAxisAlignment
                                                                       .start,
                                                               children: [
-                                                                // Padding(
-                                                                //   padding: EdgeInsets
-                                                                //       .symmetric(
-                                                                //           horizontal:
-                                                                //               20.w),
-                                                                //   child: Row(
-                                                                //     crossAxisAlignment:
-                                                                //         CrossAxisAlignment
-                                                                //             .start,
-                                                                //     mainAxisAlignment:
-                                                                //         MainAxisAlignment
-                                                                //             .spaceBetween,
-                                                                //     children: [
-                                                                //       SizedBox(
-                                                                //         width: MediaQuery.of(context).size.width *
-                                                                //             0.48.w,
-                                                                //         child:
-                                                                //             Text(
-                                                                //           '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
-                                                                //           style:
-                                                                //               TextStyle(
-                                                                //             color:
-                                                                //                 const Color(0xff8e3434),
-                                                                //             fontSize:
-                                                                //                 14.sp,
-                                                                //             fontWeight:
-                                                                //                 FontWeight.w700,
-                                                                //           ),
-                                                                //         ),
-                                                                //       ),
-                                                                //     ],
-                                                                //   ),
-                                                                // ),
                                                                 Padding(
                                                                   padding: EdgeInsets
                                                                       .symmetric(
                                                                           horizontal:
-                                                                              15.w),
+                                                                              20.w),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.48.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1336,9 +1341,9 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .width,
                                                                   padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          15.w,
+                                                                          20.w,
                                                                       vertical:
-                                                                          8.h),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -1364,7 +1369,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       },
                                                                       child:
                                                                           Text(
-                                                                        snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '').replaceAll('\n',
+                                                                        snapshot.data?.day_3.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />\r\n<br />\r\n<br />\r\n<br />\r\n', '').replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
                                                                             '',
                                                                         maxLines:
@@ -1390,6 +1395,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                 }),
                                           ),
                                         ),
+                                        SizedBox(height: 6.h)
                                       ],
                                     ),
                                   ),
@@ -1450,7 +1456,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                           '${snapshot.data?.day_4.dayHalls.elementAt(index).hallDetail ?? ''}\n',
                                                           style:
                                                               const TextStyle(
-                                                            color: Colors.black,
+                                                            color: Colors.grey,
                                                           ),
                                                         ),
                                                       ],
@@ -1545,44 +1551,44 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                   CrossAxisAlignment
                                                                       .start,
                                                               children: [
-                                                                // Padding(
-                                                                //   padding: EdgeInsets
-                                                                //       .symmetric(
-                                                                //           horizontal:
-                                                                //               15.w),
-                                                                //   child: Row(
-                                                                //     crossAxisAlignment:
-                                                                //         CrossAxisAlignment
-                                                                //             .start,
-                                                                //     mainAxisAlignment:
-                                                                //         MainAxisAlignment
-                                                                //             .spaceBetween,
-                                                                //     children: [
-                                                                //       SizedBox(
-                                                                //         width: MediaQuery.of(context).size.width *
-                                                                //             0.48.w,
-                                                                //         child:
-                                                                //             Text(
-                                                                //           '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
-                                                                //           style:
-                                                                //               TextStyle(
-                                                                //             color:
-                                                                //                 const Color(0xff8e3434),
-                                                                //             fontSize:
-                                                                //                 14.sp,
-                                                                //             fontWeight:
-                                                                //                 FontWeight.w700,
-                                                                //           ),
-                                                                //         ),
-                                                                //       ),
-                                                                //     ],
-                                                                //   ),
-                                                                // ),
                                                                 Padding(
                                                                   padding: EdgeInsets
                                                                       .symmetric(
                                                                           horizontal:
-                                                                              15.w),
+                                                                              20.w),
+                                                                  child: Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      SizedBox(
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            0.48.w,
+                                                                        child:
+                                                                            Text(
+                                                                          '${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDay ?? ''}${'-> '}${snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionHall ?? ''}\n',
+                                                                          style:
+                                                                              TextStyle(
+                                                                            color:
+                                                                                const Color(0xff8e3434),
+                                                                            fontSize:
+                                                                                14.sp,
+                                                                            fontWeight:
+                                                                                FontWeight.w700,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .symmetric(
+                                                                          horizontal:
+                                                                              20.w),
                                                                   child: Row(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
@@ -1626,9 +1632,9 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       .width,
                                                                   padding: EdgeInsets.symmetric(
                                                                       horizontal:
-                                                                          15.w,
+                                                                          20.w,
                                                                       vertical:
-                                                                          8.h),
+                                                                          10.h),
                                                                   child:
                                                                       InkWell(
                                                                     onTap: () {
@@ -1654,7 +1660,7 @@ class _SessionByDayScreenPageState extends State<SessionByDayScreenPage> {
                                                                       },
                                                                       child:
                                                                           Text(
-                                                                        snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<', '').replaceAll('\n',
+                                                                        snapshot.data?.day_4.dayHalls.elementAt(index).hallSessions.elementAt(indexList2).sessionDetail.toString().replaceAll('br', '').replaceAll('br', '').replaceAll('>', '').replaceAll('/', '').replaceAll('<',
                                                                                 '') ??
                                                                             '',
                                                                         maxLines:

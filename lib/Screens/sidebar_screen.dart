@@ -164,7 +164,8 @@ class _SidebarScreenPageState extends State<SidebarScreenPage> {
                 MaterialPageRoute(
                   builder: (context) => ContactScreen(
                     title: 'PJCVI (Journal)',
-                    link: 'https://www.pjcvi.com/index.php/home',
+                    // link: 'https://www.pjcvi.com/index.php/home',
+                    link: 'https://pjcvi.com/index.php/ojs',
                   ),
                 ),
               );

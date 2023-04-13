@@ -8,7 +8,6 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:intl/intl.dart';
 import 'package:psic_project/Model/data_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -139,9 +138,6 @@ class _SessionDetailState extends State<SessionDetail> {
     _scrollController.animateTo(0,
         duration: const Duration(seconds: 1), curve: Curves.linear);
   }
-
-  dynamic setProgram;
-  String? addProgram;
 
   @override
   Widget build(BuildContext context) {
@@ -485,6 +481,7 @@ class _SessionDetailState extends State<SessionDetail> {
                         }),
                   ),
             const SizedBox(height: 10),
+
             Visibility(
               visible: widget.sessions?.sessionChairpersons != null,
               child: Container(
@@ -493,6 +490,7 @@ class _SessionDetailState extends State<SessionDetail> {
                 color: const Color(0xff8e3434),
               ),
             ),
+
             Visibility(
               visible: widget.sessions?.sessionChairpersons != null,
               child: Container(
@@ -534,8 +532,14 @@ class _SessionDetailState extends State<SessionDetail> {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount:
-                                widget.sessions?.sessionChairpersons?.length ??
-                                    0,
+
+                                /// Fahad changes
+                                widget.sessions!.sessionChairpersons!.isEmpty
+                                    ? 0
+                                    : (widget
+                                        .sessions?.sessionChairpersons?.length)!
+                            // - 3
+                            ,
                             primary: false,
                             padding: const EdgeInsets.all(0),
                             itemBuilder: (context, index) {
@@ -565,6 +569,8 @@ class _SessionDetailState extends State<SessionDetail> {
                                                   ? const NetworkImage(
                                                       'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
                                                     )
+                                                  // the profile images
+                                                  // images
                                                   : NetworkImage(
                                                       snapshot.data![index]),
                                             ),
@@ -668,7 +674,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () async {
+                                  onTap: () {
                                     ProgramController controller =
                                         ProgramController();
                                     controller.initializeDB();
@@ -724,21 +730,6 @@ class _SessionDetailState extends State<SessionDetail> {
                                         message: "Added to your program",
                                       ),
                                     );
-                                    SharedPreferences prefs =
-                                        await SharedPreferences.getInstance();
-                                    prefs.setBool('setProgram', true);
-                                    setProgram = prefs.getBool('setProgram');
-
-                                    if (setProgram == false) {
-                                      setState(() {
-                                        addProgram = "Add to your program";
-                                      });
-                                    } else {
-                                      setState(() {
-                                        addProgram = "Added to your program";
-                                      });
-                                    }
-
                                     showNotification(
                                         title: widget.sessions?.sessionName!
                                                 .toLowerCase()
@@ -768,14 +759,14 @@ class _SessionDetailState extends State<SessionDetail> {
                                             widget.sessions!.sessionDate ?? '');
                                   },
                                   child: Row(
-                                    children: [
-                                      const Icon(
+                                    children: const [
+                                      Icon(
                                         Icons.add,
                                         color: Color(0xff8e3434),
                                       ),
                                       Text(
-                                        addProgram ?? 'Add to your program',
-                                        style: const TextStyle(
+                                        'Edit to my program',
+                                        style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff8e3434)),
                                       )
