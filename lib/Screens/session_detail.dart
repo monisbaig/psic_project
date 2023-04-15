@@ -765,7 +765,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                         color: Color(0xff8e3434),
                                       ),
                                       Text(
-                                        'Edit to my program',
+                                        'Add to my program',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Color(0xff8e3434)),
