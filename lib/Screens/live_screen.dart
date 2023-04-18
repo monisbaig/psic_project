@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,17 +23,13 @@ class _LiveScreenState extends State<LiveScreen> {
   void initState() {
     super.initState();
     // Enable virtual display.
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
-
-  String html =
-      '<iframe width="560" height="315" src="https://www.youtube.com/embed/xVM41cld7dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
   final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final String contentBase64 =
-        base64Encode(const Utf8Encoder().convert(html));
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -79,18 +75,19 @@ class _LiveScreenState extends State<LiveScreen> {
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: 'data:text/html;base64,$contentBase64',
+                    initialUrl: 'https://www.youtube.com/watch?v=xVM41cld7dM',
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);
                     },
-                    onPageStarted: (String url) {
-                      print('Page started loading: $url');
+                    onPageFinished: (finish) {
+                      setState(() {
+                        isLoading = false;
+                      });
                     },
-                    onPageFinished: (String url) {
-                      print('Page finished loading: $url');
+                    onProgress: (int progress) {
+                      print('WebView is loading (progress : $progress%)');
                     },
-                    gestureNavigationEnabled: true,
                   ),
                   isLoading
                       ? const Center(
