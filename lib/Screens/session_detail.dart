@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:intl/intl.dart';
 import 'package:psic_project/Model/data_model.dart';
@@ -70,40 +69,42 @@ class _SessionDetailState extends State<SessionDetail> {
     // }
   }
 
-  Future<List<String>> htmlParseModerator() {
+  Future<List<dynamic>> htmlParseModerator() {
     var document = parse(widget.sessions?.sessionModerators!
         .map((e) => e.sessionModerator?.userAvatar)
+        .toList()
         .toString());
     var imgList = document.querySelectorAll('img');
-    List<String> imageList = [];
-    for (dom.Element img in imgList) {
-      imageList.add(img.attributes['src']!);
-    }
+    List<dynamic> imageList = [];
+    imgList.forEach((element) {
+      imageList.add(element.attributes[('src')]);
+    });
     return Future.value(imageList);
   }
 
-  Future<List<String>> htmlParseFacilitator() {
+  Future<List<dynamic>> htmlParseFacilitator() {
     var document = parse(widget.sessions?.sessionFacilitators!
         .map((e) => e.sessionFacilitator?.userAvatar)
+        .toList()
         .toString());
     var imgList = document.querySelectorAll('img');
-    List<String> imageList = [];
-    for (dom.Element img in imgList) {
-      print(img.attributes['src'].toString());
-      imageList.add(img.attributes['src']!);
-    }
+    List<dynamic> imageList = [];
+    imgList.forEach((element) {
+      imageList.add(element.attributes[('src')]);
+    });
     return Future.value(imageList);
   }
 
-  Future<List<String>> htmlParseChairperson() {
+  Future<List<dynamic>> htmlParseChairperson() {
     var document = parse(widget.sessions?.sessionChairpersons!
         .map((e) => e.sessionChairperson?.userAvatar)
+        .toList()
         .toString());
     var imgList = document.querySelectorAll('img');
-    List<String> imageList = [];
-    for (dom.Element img in imgList) {
-      imageList.add(img.attributes['src']!);
-    }
+    List<dynamic> imageList = [];
+    imgList.forEach((element) {
+      imageList.add(element.attributes[('src')]);
+    });
     return Future.value(imageList);
   }
 
@@ -300,7 +301,7 @@ class _SessionDetailState extends State<SessionDetail> {
                     child: FutureBuilder(
                         future: htmlParseModerator(),
                         builder:
-                            (context, AsyncSnapshot<List<String>> snapshot) {
+                            (context, AsyncSnapshot<List<dynamic>> snapshot) {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount:
@@ -330,7 +331,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data != 5
+                                              image: snapshot.data == null
                                                   ? const NetworkImage(
                                                       'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
                                                     )
@@ -414,7 +415,7 @@ class _SessionDetailState extends State<SessionDetail> {
                     child: FutureBuilder(
                         future: htmlParseFacilitator(),
                         builder:
-                            (context, AsyncSnapshot<List<String>> snapshot) {
+                            (context, AsyncSnapshot<List<dynamic>> snapshot) {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount:
@@ -445,7 +446,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data != 5
+                                              image: snapshot.data == null
                                                   ? const NetworkImage(
                                                       'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
                                                     )
@@ -530,12 +531,10 @@ class _SessionDetailState extends State<SessionDetail> {
                     child: FutureBuilder(
                         future: htmlParseChairperson(),
                         builder:
-                            (context, AsyncSnapshot<List<String>> snapshot) {
+                            (context, AsyncSnapshot<List<dynamic>> snapshot) {
                           return ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
-                            itemCount:
-                                widget.sessions?.sessionChairpersons?.length ??
-                                    0,
+                            itemCount: snapshot.data?.length,
                             primary: false,
                             padding: const EdgeInsets.all(0),
                             itemBuilder: (context, index) {
@@ -561,7 +560,7 @@ class _SessionDetailState extends State<SessionDetail> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             image: DecorationImage(
-                                              image: snapshot.data != 5
+                                              image: snapshot.data == null
                                                   ? const NetworkImage(
                                                       'https://secure.gravatar.com/avatar/a4294cf03204b4ce65046cfdc39b46b4?s=96&d=mm&r=g',
                                                     )
