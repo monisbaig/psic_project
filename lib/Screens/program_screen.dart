@@ -430,6 +430,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               ),
                             ),
                           ),
+
                         if (day == 'day_4')
                           Container(
                             padding: const EdgeInsets.all(1),
@@ -489,6 +490,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                             ),
                           ),
                         SizedBox(height: 10.h),
+
                         if (day == 'day_1')
                           Container(
                             margin: const EdgeInsets.only(left: 3),
@@ -794,6 +796,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               ),
                             ),
                           ),
+
                         if (day == 'day_2')
                           Container(
                             margin: const EdgeInsets.only(left: 3),
@@ -1086,6 +1089,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               ),
                             ),
                           ),
+
                         if (day == 'day_3')
                           Container(
                             margin: const EdgeInsets.only(left: 3),
@@ -1378,6 +1382,7 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                               ),
                             ),
                           ),
+
                         if (day == 'day_4')
                           Container(
                             margin: const EdgeInsets.only(left: 3),
