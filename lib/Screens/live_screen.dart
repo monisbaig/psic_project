@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +18,6 @@ class _LiveScreenState extends State<LiveScreen> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   var isLoading = true;
-  final IFrameElement _iframeElement = IFrameElement();
 
   @override
   void initState() {
