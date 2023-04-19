@@ -1418,24 +1418,26 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   left: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    snapshot.data?.day_4
-                                                            .dayHalls
-                                                            .elementAt(index)
-                                                            .hallDetail ??
-                                                        '',
-                                                    style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 12,
+                                              child: SingleChildScrollView(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      snapshot.data?.day_4
+                                                              .dayHalls
+                                                              .elementAt(index)
+                                                              .hallDetail ??
+                                                          '',
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 12,
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ],

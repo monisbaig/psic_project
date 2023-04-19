@@ -14,6 +14,10 @@ import 'package:psic_project/Screens/fellow_courses_screen.dart';
 import 'package:psic_project/Screens/live_screen.dart';
 import 'package:psic_project/Screens/live_screen_1.dart';
 import 'package:psic_project/Screens/live_screen_2.dart';
+import 'package:psic_project/Screens/live_usama.dart';
+import 'package:psic_project/Screens/pak_live_hall_.dart';
+import 'package:psic_project/Screens/pak_live_hall_B.dart';
+import 'package:psic_project/Screens/pak_live_hall_C.dart';
 import 'package:psic_project/Screens/program_screen.dart';
 import 'package:psic_project/Screens/session_by_day_screen.dart';
 import 'package:psic_project/Screens/session_by_type_screen.dart';
@@ -281,8 +285,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LiveScreen(),
+                                        builder: (context) => PakLiveHallA(),
                                       ),
                                     );
                                   },
@@ -323,8 +326,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LiveScreen1(),
+                                        builder: (context) => PakLiveHallB(),
                                       ),
                                     );
                                   },
@@ -365,8 +367,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LiveScreen2(),
+                                        builder: (context) => PakLiveHallC(),
                                       ),
                                     );
                                   },
@@ -859,6 +860,7 @@ class _NotificationScreenPageState extends State<NotificationScreenPage> {
                 future: sqliteService.getNotif(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
+                    //print('okkkk${snapshot.data!.first.time}');
                     return SizedBox(
                       height: MediaQuery.of(context).size.height * 0.85,
                       child: ListView.builder(

@@ -309,7 +309,7 @@ class SessionModerator {
   String? userUrl;
   String? userRegistered;
   String? userDescription;
-  String? userAvatar;
+  dynamic userAvatar;
 
   SessionModerator(
       {this.iD,
