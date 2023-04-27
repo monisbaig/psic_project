@@ -9,6 +9,9 @@ class Data {
     required this.eventName,
     required this.eventDates,
     required this.eventVenue,
+    required this.hallALiveLink,
+    required this.hallBLiveLink,
+    required this.hallCLiveLink,
     required this.day_1,
     required this.day_2,
     required this.day_3,
@@ -21,6 +24,9 @@ class Data {
   late final String eventName;
   late final String eventDates;
   late final String eventVenue;
+  late final String hallALiveLink;
+  late final String hallBLiveLink;
+  late final String hallCLiveLink;
   late final Day1 day_1;
   late final Day2 day_2;
   late final Day3 day_3;
@@ -34,6 +40,9 @@ class Data {
     eventName = json['event_name'];
     eventDates = json['event_dates'];
     eventVenue = json['event_venue'];
+    hallALiveLink = json['hall_a_live_link'];
+    hallBLiveLink = json['hall_b_live_link'];
+    hallCLiveLink = json['hall_c_live_link'];
     day_1 = Day1.fromJson(json['day_1']);
     day_2 = Day2.fromJson(json['day_2']);
     day_3 = Day3.fromJson(json['day_3']);
@@ -49,6 +58,9 @@ class Data {
     data['event_name'] = eventName;
     data['event_dates'] = eventDates;
     data['event_venue'] = eventVenue;
+    data['hall_a_live_link'] = hallALiveLink;
+    data['hall_b_live_link'] = hallBLiveLink;
+    data['hall_c_live_link'] = hallCLiveLink;
     data['day_1'] = day_1.toJson();
     data['day_2'] = day_2.toJson();
     data['day_3'] = day_3.toJson();
@@ -428,7 +440,7 @@ class SessionTimeSlots {
 class FacilitatorsSpeakers {
   SessionModerator? facilitatorSpeaker;
 
-  FacilitatorsSpeakers({this.facilitatorSpeaker});
+  FacilitatorsSpeakers({required this.facilitatorSpeaker});
 
   FacilitatorsSpeakers.fromJson(Map<String, dynamic> json) {
     facilitatorSpeaker = json['facilitator_speaker'] != false
@@ -443,4 +455,8 @@ class FacilitatorsSpeakers {
     }
     return data;
   }
+}
+
+class YouTubeLink {
+  String? link;
 }

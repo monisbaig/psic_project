@@ -8,7 +8,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/custom_navigation_bar.dart';
 
 class ProgramScreenPage extends StatefulWidget {
-  const ProgramScreenPage({Key? key}) : super(key: key);
+  ProgramScreenPage(
+      {Key? key,
+      this.sessions,
+      this.hallIndex,
+      this.sessionIndex,
+      this.allSessionsList,
+      this.comingFrom,
+      this.program})
+      : super(key: key);
+  HallSessions? sessions;
+  dynamic hallIndex;
+  dynamic sessionIndex;
+  dynamic comingFrom;
+  List<HallSessions>? allSessionsList;
+  dynamic program;
 
   @override
   State<ProgramScreenPage> createState() => _ProgramScreenPageState();
@@ -677,17 +691,45 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                        Text(
-                                                                          mysavedData.data?.elementAt(indexList2).caseTime ??
-                                                                              '',
-                                                                          style:
-                                                                              const TextStyle(
+
+                                                                        /// Fahad Changes
+
+                                                                        Container(
+                                                                          // margin:
+                                                                          //     const EdgeInsets.symmetric(vertical: 10),
+                                                                          decoration:
+                                                                              BoxDecoration(
                                                                             color:
-                                                                                Colors.grey,
-                                                                            fontWeight:
-                                                                                FontWeight.w700,
+                                                                                const Color(0xff8e3434),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(10),
+                                                                          ),
+                                                                          padding:
+                                                                              const EdgeInsets.all(10),
+                                                                          child:
+                                                                              Text(
+                                                                            mysavedData.data?.elementAt(indexList2).caseTime ??
+                                                                                '',
+                                                                            style:
+                                                                                const TextStyle(
+                                                                              color: Colors.white,
+                                                                              fontWeight: FontWeight.w700,
+                                                                            ),
                                                                           ),
                                                                         ),
+
+                                                                        /// Fahad Changes
+                                                                        // Text(
+                                                                        //   mysavedData.data?.elementAt(indexList2).caseTime ??
+                                                                        //       '',
+                                                                        //   style:
+                                                                        //       const TextStyle(
+                                                                        //     color:
+                                                                        //         Colors.grey,
+                                                                        //     fontWeight:
+                                                                        //         FontWeight.w700,
+                                                                        //   ),
+                                                                        // ),
                                                                       ],
                                                                     ),
                                                                     Padding(
@@ -703,12 +745,42 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                           SizedBox(
                                                                             width:
                                                                                 MediaQuery.of(context).size.width * 0.8,
+                                                                            // child: Text(
+                                                                            //   widget.sessions?.sessionTimeSlots!.elementAt(index).time ?? '',
+                                                                            //   style: TextStyle(
+                                                                            //     color: Color(0xff8e3434),
+                                                                            //     fontWeight: FontWeight.w700,
+                                                                            //   ),
+                                                                            // )
                                                                             child:
-                                                                                Text(
-                                                                              mysavedData.data?.elementAt(indexList2).description ?? '',
-                                                                              style: const TextStyle(
-                                                                                color: Color(0xff8e3434),
-                                                                                fontWeight: FontWeight.w700,
+                                                                                SingleChildScrollView(
+                                                                              scrollDirection: Axis.horizontal,
+                                                                              child: Row(
+                                                                                children: [
+                                                                                  /// Fahad Changes
+                                                                                  // Container(
+                                                                                  //   // margin: const EdgeInsets.symmetric(vertical: 10),
+                                                                                  //   decoration: BoxDecoration(
+                                                                                  //     color: const Color(0xff8e3434),
+                                                                                  //     borderRadius: BorderRadius.circular(10),
+                                                                                  //   ),
+                                                                                  //   padding: const EdgeInsets.all(10),
+                                                                                  //   child: Text(
+                                                                                  //     mysavedData.data?.elementAt(indexList2).caseName ?? '',
+                                                                                  //     style: const TextStyle(
+                                                                                  //       color: Colors.white,
+                                                                                  //       fontWeight: FontWeight.w700,
+                                                                                  //     ),
+                                                                                  //   ),
+                                                                                  // ),
+                                                                                  Text(
+                                                                                    mysavedData.data?.elementAt(indexList2).caseName ?? '',
+                                                                                    style: const TextStyle(
+                                                                                      color: Colors.black,
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
                                                                               ),
                                                                             ),
                                                                           ),
@@ -749,26 +821,41 @@ class _ProgramScreenPageState extends State<ProgramScreenPage> {
                                                                             prefs.setBool('setProgram',
                                                                                 false);
                                                                           },
+
+                                                                          /// Fahad changes
+                                                                          // child:
+                                                                          //     Container(
+                                                                          //   height:
+                                                                          //       MediaQuery.of(context).size.height * 0.05,
+                                                                          //   width:
+                                                                          //       MediaQuery.of(context).size.width * 0.4,
+                                                                          //   decoration:
+                                                                          //       BoxDecoration(
+                                                                          //     borderRadius: BorderRadius.circular(8),
+                                                                          //     color: const Color(0xff8e3434),
+                                                                          //   ),
+                                                                          //   child:
+                                                                          //       const Center(
+                                                                          //     child: Text(
+                                                                          //       '- Remove',
+                                                                          //       style: TextStyle(
+                                                                          //         color: Colors.white,
+                                                                          //       ),
+                                                                          //     ),
+                                                                          //   ),
+                                                                          // ),
                                                                           child:
-                                                                              Container(
-                                                                            height:
-                                                                                MediaQuery.of(context).size.height * 0.05,
-                                                                            width:
-                                                                                MediaQuery.of(context).size.width * 0.4,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              borderRadius: BorderRadius.circular(8),
-                                                                              color: const Color(0xff8e3434),
-                                                                            ),
-                                                                            child:
-                                                                                const Center(
-                                                                              child: Text(
+                                                                              Row(
+                                                                            children: [
+                                                                              // const Icon(
+                                                                              //   Icons.remove,
+                                                                              //   color: Color(0xff8e3434),
+                                                                              // ),
+                                                                              Text(
                                                                                 'Remove',
-                                                                                style: TextStyle(
-                                                                                  color: Colors.white,
-                                                                                ),
-                                                                              ),
-                                                                            ),
+                                                                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xff8e3434)),
+                                                                              )
+                                                                            ],
                                                                           ),
                                                                         ),
                                                                       ],

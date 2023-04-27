@@ -18,9 +18,22 @@ class _LiveScreen1State extends State<LiveScreen1> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   var isLoading = true;
+  var webUrl = "https://www.youtube.com/embed/hjgS3-1bCxA";
+  // getDate() {
+  //   var date = new DateTime.now().day;
+  //   var webUrl;
+  //   // var date = new DateTime(now);
+  //   if (date == 27) {
+  //     "https://www.youtube.com/embed/2vOioWKKyJ4";
+
+  //     print("9999999 object");
+  //   }
+  //   print("888888888888 $date");
+  // }
 
   @override
   void initState() {
+    // getDate();
     super.initState();
     // Enable virtual display.
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
@@ -75,7 +88,7 @@ class _LiveScreen1State extends State<LiveScreen1> {
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: 'https://www.youtube.com/watch?v=rE1n8-h6NnM',
+                    initialUrl: webUrl,
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);

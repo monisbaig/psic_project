@@ -126,7 +126,12 @@ class _SponsorsTestState extends State<SponsorsTest> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                        '${snapshot.data?.eventSponsors.elementAt(indexList2).toString()}'),
+                                                      '${snapshot.data?.eventSponsors.elementAt(indexList2).toString()}',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),

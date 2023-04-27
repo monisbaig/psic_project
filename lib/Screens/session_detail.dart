@@ -850,6 +850,9 @@ class _SessionDetailState extends State<SessionDetail> {
                                   ),
                                 ],
                               ),
+                              SizedBox(
+                                height: 20,
+                              ),
                               Visibility(
                                 visible:
                                     widget.sessions?.sessionTimeSlots!.length ==

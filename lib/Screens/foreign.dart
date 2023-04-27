@@ -133,7 +133,12 @@ class _ForeignState extends State<Foreign> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                        '${snapshot.data?.foreignFaculty.elementAt(indexList2).toString()}'),
+                                                      '${snapshot.data?.foreignFaculty.elementAt(indexList2).toString()}',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),

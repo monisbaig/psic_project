@@ -129,7 +129,12 @@ class _PakistaniState extends State<Pakistani> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                        '${snapshot.data?.localFaculty.elementAt(indexList2).toString()}'),
+                                                      '${snapshot.data?.localFaculty.elementAt(indexList2).toString()}',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),

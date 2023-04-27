@@ -70,130 +70,154 @@ class _CaseCornerScreenPageState extends State<CaseCornerScreenPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.75,
-                              child: ListView.builder(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                  ),
-                                  itemCount: snapshot.data?.length,
-                                  itemBuilder: (context, indexList2) {
-                                    return Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Column(
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.all(20),
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.8.w,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.grey.shade400,
-                                                    spreadRadius: 1,
-                                                    blurRadius: 5)
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            margin: const EdgeInsets.symmetric(
-                                                horizontal: 10, vertical: 5),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(10),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
+                        InkWell(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.75,
+                                child: ListView.builder(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 10,
+                                    ),
+                                    itemCount: snapshot.data?.length,
+                                    itemBuilder: (context, indexList2) {
+                                      return Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Column(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            SessionDetail(
+                                                              sessions: snapshot
+                                                                  .data
+                                                                  ?.elementAt(
+                                                                      indexList2),
+                                                              sessionIndex:
+                                                                  indexList2,
+                                                              allSessionsList:
+                                                                  snapshot.data,
+                                                            )));
+                                              },
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.all(20),
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.8.w,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors
+                                                            .grey.shade400,
+                                                        spreadRadius: 1,
+                                                        blurRadius: 5)
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 10,
+                                                        vertical: 5),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(10),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
-                                                      SizedBox(
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.5.w,
-                                                        child: Text(
-                                                          '${snapshot.data?.elementAt(indexList2).sessionDate}-${snapshot.data?.elementAt(indexList2).sessionHall}\n',
-                                                          style:
-                                                              const TextStyle(
+                                                      Row(
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.5.w,
+                                                            child: Text(
+                                                              '${snapshot.data?.elementAt(indexList2).sessionDate}-${snapshot.data?.elementAt(indexList2).sessionHall}\n',
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w700,
                                                                   fontSize: 16),
-                                                        ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
+                                                      Row(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.3,
+                                                            child: Text(
+                                                              '${snapshot.data?.elementAt(indexList2).sessionName}\n',
+                                                              style:
+                                                                  const TextStyle(
+                                                                color: Colors
+                                                                    .black,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            '${snapshot.data?.elementAt(indexList2).sessionTime}\n',
+                                                            style:
+                                                                const TextStyle(
+                                                              color:
+                                                                  Colors.grey,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                       SizedBox(
                                                         width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.3,
-                                                        child: Text(
-                                                          '${snapshot.data?.elementAt(indexList2).sessionName}\n',
-                                                          style:
-                                                              const TextStyle(
-                                                            color: Colors.black,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        '${snapshot.data?.elementAt(indexList2).sessionTime}\n',
-                                                        style: const TextStyle(
-                                                          color: Colors.grey,
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  SizedBox(
-                                                    width:
-                                                        MediaQuery.of(context)
+                                                                context)
                                                             .size
                                                             .width,
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        Navigator.of(context).push(
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        SessionDetail(
-                                                                          sessions: snapshot
-                                                                              .data
-                                                                              ?.elementAt(indexList2),
-                                                                          sessionIndex:
-                                                                              indexList2,
-                                                                          allSessionsList:
-                                                                              snapshot.data,
-                                                                        )));
-                                                      },
-                                                      child: InkWell(
-                                                        onTap: () {
-                                                          Navigator.of(context).push(
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.of(context).push(
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            SessionDetail(
+                                                                              sessions: snapshot.data?.elementAt(indexList2),
+                                                                              sessionIndex: indexList2,
+                                                                              allSessionsList: snapshot.data,
+                                                                            )));
+                                                          },
+                                                          child: InkWell(
+                                                            onTap: () {
+                                                              Navigator.of(context).push(
+                                                                  MaterialPageRoute(
+                                                                      builder: (context) =>
                                                                           SessionDetail(
                                                                             sessions:
                                                                                 snapshot.data?.elementAt(indexList2),
@@ -202,34 +226,37 @@ class _CaseCornerScreenPageState extends State<CaseCornerScreenPage> {
                                                                             allSessionsList:
                                                                                 snapshot.data,
                                                                           )));
-                                                        },
-                                                        child: Text(
-                                                          '${snapshot.data?.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />', '').replaceAll('\n', '')}',
-                                                          maxLines: 100,
-                                                          style:
-                                                              const TextStyle(
-                                                            color: Color(
-                                                                0xff8e3434),
-                                                            fontWeight:
-                                                                FontWeight.w700,
+                                                            },
+                                                            child: Text(
+                                                              '${snapshot.data?.elementAt(indexList2).sessionDetail.toString().replaceAll('<br />', '').replaceAll('\n', '')}',
+                                                              maxLines: 100,
+                                                              style:
+                                                                  const TextStyle(
+                                                                color: Color(
+                                                                    0xff8e3434),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
+                                                    ],
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  }),
-                            ),
-                            const SizedBox(
-                              height: 50,
-                            )
-                          ],
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                              ),
+                              const SizedBox(
+                                height: 50,
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),

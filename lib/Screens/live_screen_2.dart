@@ -75,7 +75,7 @@ class _LiveScreen2State extends State<LiveScreen2> {
               child: Stack(
                 children: [
                   WebView(
-                    initialUrl: 'https://www.youtube.com/watch?v=qg8KVkfii5A',
+                    initialUrl: "https://www.youtube.com/embed/DJb0idGFZOg",
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {
                       _controller.complete(webViewController);

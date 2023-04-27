@@ -123,19 +123,8 @@ class _WhatsHappeningScreenPageState extends State<WhatsHappeningScreenPage> {
                                         rethrow;
                                       }
 
-                                      print('Time: $time');
-                                      print('EndTime: $endTime');
-                                      print('Date: $date');
-
-                                      // if (time >= DateTime.now().month &&
-                                      //     (snapshot.data!
-                                      //         .elementAt(indexList2)
-                                      //         .sessionDate!
-                                      //         .contains('-')
-                                      //         ? false
-                                      //         : DateTime.now().day == date))
-
-                                      if (endTime > DateTime.now().hour &&
+                                      if (time < DateTime.now().hour &&
+                                          endTime > DateTime.now().hour &&
                                           DateTime.now().day == date) {
                                         return Padding(
                                           padding:

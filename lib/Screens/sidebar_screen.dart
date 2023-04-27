@@ -41,7 +41,7 @@ class _SidebarScreenPageState extends State<SidebarScreenPage> {
                 color: Colors.white,
               ),
               title: Text(
-                'Faculty (Pakistan)',
+                'Local Faculty',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -60,7 +60,7 @@ class _SidebarScreenPageState extends State<SidebarScreenPage> {
                 color: Colors.white,
               ),
               title: Text(
-                'Faculty (Foreign)',
+                'International Faculty',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -79,7 +79,7 @@ class _SidebarScreenPageState extends State<SidebarScreenPage> {
                 color: Colors.white,
               ),
               title: Text(
-                'Sponsors',
+                'Event Sponsors',
                 style: TextStyle(
                   color: Colors.white,
                 ),

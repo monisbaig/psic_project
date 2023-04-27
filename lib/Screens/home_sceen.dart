@@ -285,7 +285,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => PakLiveHallA(),
+                                        builder: (context) => LiveScreen1(),
                                       ),
                                     );
                                   },
@@ -326,7 +326,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => PakLiveHallB(),
+                                        builder: (context) => LiveScreen2(),
                                       ),
                                     );
                                   },
@@ -367,7 +367,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                                   onTap: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => PakLiveHallC(),
+                                        builder: (context) => LiveScreen(),
                                       ),
                                     );
                                   },
@@ -505,8 +505,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
       case 1:
         return InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const ProgramScreenPage()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProgramScreenPage()));
           },
           child: Container(
             margin: EdgeInsets.only(top: 10.h, right: 10.w),
